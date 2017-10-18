@@ -1,0 +1,42 @@
+.widget {
+	width: 100%;
+	float: left;
+	margin-bottom: $margin-medium;
+	padding-bottom: $padding-medium;
+	border-bottom: 1px solid $border-color;
+
+	h5 {
+		margin-top: 0;
+	}
+	a {
+		color: $main-gray;
+		font-size: 12px;
+		display: inline-block;
+		padding: $padding-base /3 0;
+		width: 100%;
+		transition: all 300ms ease-in-out;
+			&:hover {
+			color: $main-theme-color-secondary;
+		}
+	}
+	.ti-close {
+		opacity: 0;
+		transition: opacity 300ms ease-in-out;
+	}
+	&-active {
+		color: $main-theme-color-secondary!important;
+		.ti-close {
+			opacity: 1;
+		}
+
+	}
+	&-color-dot {
+		display: inline-block;
+		width: 5px;
+		height: 5px;
+		margin-right: 5px;
+		border-radius: 50%;
+		position: relative;
+		top: -2px;
+	}
+}

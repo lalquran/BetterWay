@@ -1,0 +1,114 @@
+.product-item {
+	&-thumbnail {
+		position: relative;
+		overflow: hidden;
+		border-radius: 5px;
+
+		&-link {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: 5;
+		}
+		&-label {
+			position: absolute;
+			top: 15px;
+			left: 15px;
+			background: $main-light-color;
+			padding: $padding-base / 2 $padding-base;
+			border-radius: 20px;
+			z-index: 3;
+		}
+		&-overlay {
+			position: absolute;
+			top: -100%;
+			left: 0;
+			right: 0;
+			height: 36px;
+			transform: translatey(-50%);
+			transition: all 300ms ease-in-out;
+			z-index: 2;
+			opacity: 0;
+
+			&-with-bg {
+				@extend %flex-center;
+				background: rgba(0, 0, 0, 0.8);
+				bottom: 0;
+				height: auto;
+				top: 0 !important;
+				transform: translate(0px);
+				color: $main-light-color;
+				.btn {
+					margin-bottom: $margin-base;
+					position: relative;
+					z-index: 10;
+				}
+
+			}
+			&-small {
+				.h5 {
+					font-size: 30px;
+						text-transform: uppercase;
+				}
+			}
+			&-medium {
+				.h5 {
+					font-size: 45px;
+						text-transform: uppercase;
+				}
+			}
+			&-large {
+				.h5 {
+					font-size: 60px;
+						text-transform: uppercase;
+				}
+			}
+			&-small, &-medium, &-large {
+				@include medium-tablet {
+					.h5 {
+						font-size: 30px;
+					 
+
+					}
+				}
+				@include smartphone {
+					.mb-30 {
+						margin-bottom: $margin-base!important;
+					}
+					.h5 {
+						font-size: 18px;
+						
+					
+					}
+						.btn-default {
+							display: none;
+						}
+				}
+			}
+		}
+		&:hover {
+			.product-item-thumbnail-overlay {
+				top: 50%;
+				opacity: 1;
+			}
+		}
+	}
+	margin-bottom: $margin-large;
+}
+// use it for container with more than one row with items.
+// for example - listings
+.flex-list {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	// -webkit-justify-content: space-around;
+	// -ms-flex-pack: distribute;
+	// justify-content: space-around;
+}
