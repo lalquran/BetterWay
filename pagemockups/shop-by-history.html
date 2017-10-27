@@ -1,8 +1,35 @@
 <!DOCTYPE html>
 <html lang="zxx">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <head>
         <meta charset="utf-8">
         <title>vega - ecommerce</title>
+        <style>
+        	.myBox {
+				border: none;
+				padding: 5px;
+				font: 24px/36px sans-serif;
+				width:  700px;
+				height: 400px;
+				overflow: scroll;
+			}
+			/* Scrollbar styles */
+			::-webkit-scrollbar {
+				width: 12px;
+				height: 12px;
+			}
+			::-webkit-scrollbar-track {
+				border: 1px #6495ED;
+				border-radius: 10px;
+			}
+			::-webkit-scrollbar-thumb {
+				background: #6495ED;  
+				border-radius: 10px;
+			}
+			::-webkit-scrollbar-thumb:hover {
+				background: solid blue;  
+			}
+        </style>
         <meta name="description" content="">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
@@ -10,165 +37,9 @@
         <link rel="stylesheet" href="assets/theme/css/theme.css">
     </head>
 	<body>
-	<header class="navbar navbar-container mb-0">
-		<div class="container-fluid">
-			<nav class="navbar-default sidebar pb-30">
-			    <div class="container-fluid">
-					<div class="navbar-header text-center">
-						<img src="assets/img/logo.png" alt="store logo" class="width-50 mt-30 mb-30">
-						<span class="navbar-header-title mb-0">
-							<span class="text-muted x-small">Where we do it your way</span>
-						</span>
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						navigation <span class="ti-menu"></span>
-						</button>      
-					</div>
 
-					<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-						
-
-						<ul class="navbar-user mb-30 pull-left width-100">
-							<li>
-								<span data-toggle="modal" data-target="#myModal" class="ti-user"></span>
-							</li>
-							<li>
-								<span data-focus="search" data-toggle="modal" data-target="#searchModal" class="ti-search"></span>
-							</li>
-							<li>
-								<span data-toggle="modal" data-target="#cartModal" class="ti-shopping-cart">
-									<span class="navbar-user-counter">3</span>
-								</span>
-							</li>
-						</ul>
-						<ul class="nav navbar-nav nav navbar-nav side-nav text-center">
-							<li class="active"><a href="home-3.html">Home</a></li>
-							<li class="active"><a href="shop-by-history.html">Search By History</a></li>    
-							<li class="active"><a href="#">Deals</a></li>
-	                        <li>
-		                        <a aria-expanded="true" class="collapsed" href="javascript:;" data-toggle="collapse" data-target="#colapse-item-1">Aisle
-                                	<i class="ti-minus"></i> 
-                                	<i class="ti-plus"></i>
-                                </a>
-
-                                <ul style="" aria-expanded="true" id="colapse-item-1" class="collapseItem collapse">
-									<li>
-										<a href="#">
-											<i class="ti-arrow-right" aria-hidden="true"></i>Beverages 
-											<span>(6)</span>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="ti-arrow-right" aria-hidden="true"></i>Bread and Bakery
-											<span>(12)</span>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="ti-arrow-right" aria-hidden="true"></i>Breakfast cereal
-											<span>(101)</span>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="ti-arrow-right" aria-hidden="true"></i>Canned Goods and Soups
-											<span>(32)</span>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="ti-arrow-right" aria-hidden="true"></i>Cookies, Snacks and Candy
-											<span>(49)</span>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="ti-arrow-right" aria-hidden="true"></i>Dairy Eggs and Cheese
-											<span>(18)</span>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="ti-arrow-right" aria-hidden="true"></i>Fruits and Vegetables
-											<span>(148)</span>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="ti-arrow-right" aria-hidden="true"></i>Grains, Pastas, and Sides
-											<span>(76)</span>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="ti-arrow-right" aria-hidden="true"></i>Meat and Seafood
-											<span>(56)</span>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="ti-arrow-right" aria-hidden="true"></i>Personal Care and Health
-											<span>(198)</span>
-										</a>
-									</li>
-
-                                </ul>
-		                    </li>
-		                    <!--
-	                        <li>
-		                        <a aria-expanded="true" class="collapsed" href="javascript:;" data-toggle="collapse" data-target="#colapse-item-2">Mattis eu ligula
-                                	<i class="ti-minus"></i> 
-                                	<i class="ti-plus"></i>
-                                </a>
-
-                                <ul style="" aria-expanded="true" id="colapse-item-2" class="collapseItem collapse">
-									<li>
-										<a href="#">
-											<i class="ti-arrow-right" aria-hidden="true"></i>Pellentesque habitant
-											<span>(6)</span>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="ti-arrow-right" aria-hidden="true"></i>Etiam neque augue
-											<span>(12)</span>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="ti-arrow-right" aria-hidden="true"></i>Aliquam ultricies 
-											<span>(101)</span>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="ti-arrow-right" aria-hidden="true"></i>Pellentesque habitant
-											<span>(6)</span>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="ti-arrow-right" aria-hidden="true"></i>Etiam neque augue
-											<span>(12)</span>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="ti-arrow-right" aria-hidden="true"></i>Aliquam ultricies 
-											<span>(101)</span>
-										</a>
-									</li>
-                                </ul>
-		                    </li>
-							
-		                    <li class="active"><a href="#">Some link</a></li> 
-						  	-->
-						</ul>
-					</div>
-			  	</div>
-			</nav>
-		</div>
+	<header class="navbar navbar-container mb-0" ng-app="">
+		<div ng-include= "'leftmenu.html'"></div>
 	</header>
 
 	<!-- LOGIN | REGISTER MODAL -->
@@ -471,7 +342,7 @@
 			<div class="col-md-10">
 				<!-- PRODUCTS ROW -->
 				<div class="container-fluid">
-					<div class="row flex-list">
+					<div class="myBox">
 						<!-- PRODUCT SINGLE -->
 						<div class="col-md-4 col-sm-6">
 							<div class="product-item">
@@ -623,29 +494,7 @@
 				<!-- / PRODUCTS ROW -->
 
 				<!-- PAGINATION -->
-                <div class="width-100">
-                    <div class="widget-pagination pull-left pl-15">
-                        <nav aria-label="Page navigation">
-                            <ul class="pagination">
-                                <li>
-                                    <a href="#" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                </li>
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li>
-                                    <a href="#" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
+               
 				<!-- / PAGINATION -->
 			</div>
 			<div class="col-md-12">
