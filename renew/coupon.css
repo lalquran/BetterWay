@@ -6,7 +6,7 @@
   line-height: 1.4em;
 }
 
-.button {
+.button{
     -webkit-appearance: button;
     -moz-appearance: button;
     appearance: button;
@@ -14,13 +14,17 @@
     text-decoration: none;
     color: initial;
 }
-div.item{
-    margin: 5px;
-    float: left;
-    width: 180px;
-    text-align: center;
 
+.itemdiscount{
+  width: 30%;
+  float: left;
+  padding: 15px;
+  text-align: center;
 }
-div.stuff{
-  align-items: center;
+
+.itemlist{
+  width: 30%;
+  float: left;
+  padding: 15px;
+  text-align: center;
 }
