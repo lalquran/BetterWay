@@ -2,11 +2,13 @@
 <html lang="zxx">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script src = "app.js"></script>
+
     <head>
         <meta charset="utf-8">
         <title>vega - ecommerce</title>
         <style>
         	.myBox {
+        		float:left;
 				border: none;
 				padding: 5px;
 				font: 24px/36px sans-serif;
@@ -43,225 +45,6 @@
 		<div ng-include= "'leftmenu.html'"></div>
 	</header>
 
-	<!-- LOGIN | REGISTER MODAL -->
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" >
-		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="ti-close" aria-hidden="true"></span></button>
-
-	  	<div class="modal-dialog" role="document">
-	    	<div class="modal-content width-100 pull-left pt-60 pb-60">
-				    <div class="modal-body form-group">
-				        <div id="login" class="login col-md-10 col-md-push-1 col-sm-12">
-				            <div class="panel">
-				                <div class="panel-heading">
-				                    <div class="panel-title h3 mt-30 mb-30">Sign In
-				                        <div class="pull-right login-context-info">
-				                            
-				                            <a href="#" onClick="$('#login').hide(); $('#signup').show()" class="text-muted small">
-				                                Sign Up
-				                            </a>
-				                        </div>
-				                    </div>
-				                </div>
-				                <div class="panel-body">
-				                    <form id="loginform" class="form-horizontal pl-15 pr-15 pt-15">
-				                        <div class="form-group">
-				                            <div class="col-md-12">
-				                                <input type="text" class="form-control" id="email-sign-in" placeholder="Email Address">
-				                            </div>
-				                        </div>
-				                        <div class="form-group">
-				                            <div class="col-md-12">
-				                                <input type="password" class="form-control" id="password-sign-in" placeholder="Password">
-				                            </div>
-				                        </div>
-				                        
-				                        <div class="custom-checkbox custom-checkbox-primary pull-left">
-				                            <input id="custom-checkbox2" class="styled" type="checkbox" checked>
-				                            <label for="custom-checkbox2"> remember me
-				                            </label>
-				                        </div>
-				                        
-				                        <div class="form-group">
-				                            <!-- Button -->
-				                            <div class="col-sm-12 login-btn mt-30">
-				                                <a id="btn-sign-in" href="#" class="btn btn-primary">Login  </a>
-				                                <a id="btn-fb-sign-in" href="#" class="btn btn-default">Facebook sign in</a>
-				                            </div>
-				                        </div>
-				                        <div class="form-group">
-				                            <div class="col-md-12">
-				                                <a href="#" class="small">password recovery</a>
-				                            </div>
-				                        </div>
-				                    </form>
-				                </div>
-				            </div>
-				        </div>
-				        <div id="signup" style="display:none" class="col-md-10 col-md-push-1 col-sm-12">
-				            <div class="panel">
-				                <div class="panel-heading">
-				                    <div class="panel-title h3 mt-30 mb-30">Sign Up
-				                        <div class="login-context-info pull-right"><a id="signinlink" class="text-muted small" href="#" onclick="$('#signup').hide(); $('#login').show()">Sign In</a>
-				                    </div>
-				                </div>
-				            </div>
-				            <div class="panel-body">
-				                <form id="signupform" class="form-horizontal pl-15 pr-15 pt-15">
-				                    <div class="form-group">
-				                        <div class="col-md-12">
-				                            <input type="text" class="form-control" id="email" placeholder="Email Address">
-				                        </div>
-				                    </div>
-				                    <div class="form-group">
-				                        <div class="col-md-12">
-				                            <input type="text" class="form-control" id="firstname" placeholder="First Name">
-				                        </div>
-				                    </div>
-				                    <div class="form-group">
-				                        <div class="col-md-12">
-				                            <input type="text" class="form-control" id="lastname" placeholder="Last Name">
-				                        </div>
-				                    </div>
-				                    <div class="form-group">
-				                        <div class="col-md-12">
-				                            <input type="password" class="form-control" id="password" placeholder="Password">
-				                        </div>
-				                    </div>
-				                    <div class="form-group mt-30">
-				                        <!-- Button -->
-				                        <div class="col-sm-12 login-btn">
-				                            <a id="btn-sign-up" href="#" class="btn btn-primary">Sign up  </a>
-				                            <a id="btn-fb-sign-up" href="#" class="btn btn-default">Facebook sign up</a>
-				                        </div>
-				                    </div>
-				                </form>
-				            </div>
-				            <div class="clearfix"></div>
-				        </div>
-					</div>
-	     		</div>
-	    	</div>
-	  	</div>
-	</div>
-	<!-- / LOGIN | REGISTER MODAL -->
-
- 	<!-- SEARCH MODAL -->
-	<div class="modal fade" id="searchModal" tabindex="-1" role="dialog" >
-		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="ti-close" aria-hidden="true"></span></button>
-		
-	  	<div class="modal-dialog" role="document">
-	    	<div class="modal-content width-100 pull-left pt-60 pb-60 no-background">
-				<div class="modal-body">
-					<div class="width-100" id="search">
-					    <form>
-					        <input type="search" value="" placeholder="type keyword(s) here" />
-					        <button type="submit" class="btn btn-primary">Search</button>
-					    </form>
-					</div>
-	     		</div>
-	    	</div>
-	  	</div>
-	</div>
-	<!-- / SEARCH MODAL -->
-
-	<!-- CART MODAL -->
-	<div class="modal fade" id="cartModal" tabindex="-1" role="dialog" >
-		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="ti-close" aria-hidden="true"></span></button>
-		
-	  	<div class="modal-dialog" role="document">
-	    	<div class="modal-content width-100 pull-left pt-60 pb-60">
-				<div class="modal-body">
-					<div class="width-100">
-						<ul class="cart-items width-100 pull-left pl-60 pr-30 pb-0 pt-0 container-fluid">
-			                <li class="cart-items-labels visible-lg-block visible-md-block row"> 
-			                    <span class="col-md-6 text-muted small">product</span>
-			                    <span class="col-md-2 text-muted small text-center">quantity</span> 
-			                    <span class="col-md-4 text-muted small text-right">price</span>
-			                </li>
-			                <li class="row">
-			                    <span class="cart-image col-xs-6 col-sm-2">
-			                        <a href="#"><img alt="product description" src="assets/img/products/product-03.jpg"></a>
-			                    </span>
-
-			                    <div class="cart-item-right col-md-10">
-			                    	<div class="row">
-			                            <span class="cart-description col-xs-12 col-md-5">
-			                                <a class="h5" href="#">Product name</a>				   
-			                                <span class="cart-item-price h5 text-muted">$ 33.00</span>
-			                            </span>
-
-										<span class="col-md-2 col-sm-12">
-											<input class="text-center form-control" type="text" value="10">
-										</span>
-
-			                            <span class="col-md-5 col-sm-12 text-right">
-			                                <span class="cart-price pull-right">$330.00 <a class="cart-remove" href="#">
-			                                <span class="ti-trash icon pull-right mt-5 ml-10"></span>
-			                                </a></span>
-			                               
-			                            </span>
-			                        </div>
-			                    </div>
-			                </li>
-			                <li class="row">
-			                    <span class="cart-image col-xs-6 col-sm-2">
-			                        <a href="#"><img alt="product description" src="assets/img/products/product-03.jpg"></a>
-			                    </span>
-
-			                    <div class="cart-item-right col-md-10">
-			                    	<div class="row">
-			                            <span class="cart-description col-xs-12 col-md-5">
-			                                <a class="h5" href="#">Product name</a>                               
-			                                <span class="cart-item-price h5 text-muted">$ 33.00</span>
-			                            </span>
-
-										<span class="col-md-2 col-sm-12">
-											<input class="text-center form-control" type="text" value="10">
-										</span>
-
-			                            <span class="col-md-5 col-sm-12 text-right">
-			                                <span class="cart-price pull-right">$330.00 <a class="cart-remove" href="#">
-			                                <span class="ti-trash icon pull-right mt-5 ml-10"></span>
-			                                </a></span>
-			                               
-			                            </span>
-			                        </div>
-			                    </div>
-			                </li>
-			                <li class="row">
-			                    <span class="cart-image col-xs-6 col-sm-2">
-			                        <a href="#"><img alt="product description" src="assets/img/products/product-03.jpg"></a>
-			                    </span>
-
-			                    <div class="cart-item-right col-md-10">
-			                    	<div class="row">
-			                            <span class="cart-description col-xs-12 col-md-5">
-			                                <a class="h5" href="#">Product name</a>                               
-			                                <span class="cart-item-price h5 text-muted">$ 33.00</span>
-			                            </span>
-
-										<span class="col-md-2 col-sm-12">
-											<input class="text-center form-control" type="text" value="10">
-										</span>
-
-			                            <span class="col-md-5 col-sm-12 text-right">
-			                                <span class="cart-price pull-right">$330.00 <a class="cart-remove" href="#">
-			                                <span class="ti-trash icon pull-right mt-5 ml-10"></span>
-			                                </a></span>
-			                            </span>
-			                        </div>
-			                    </div>
-			                </li>
-			            </ul>
-			            <div class="pull-left width-100 pr-45">
-			            	<a class="btn btn-default pull-right">checkout</a>
-			            </div>
-					</div>
-	     		</div>
-	    	</div>
-	  	</div>
-	</div>
-	<!-- / CART MODAL -->
 
 	<div class="container-fluid main-wrapper">
 		<div class="row">
@@ -348,7 +131,13 @@
 				<div class="container-fluid">
 					<div id = "myBox">
 						<script> displayHistory()</script>
-						<!-- PRODUCT SINGLE 
+						<!--<ul>
+							<img src = "assets/img/products/product-03.jpg" class='img-responsive' alt='product image'>
+							<li>Pineapple
+							</li>
+						</ul>
+						
+						 PRODUCT SINGLE 
 						<div class="col-md-4 col-sm-6">
 							<div class="product-item">
 								<div class="product-item-thumbnail text-center mb-15">
