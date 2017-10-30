@@ -1,0 +1,26 @@
+.header{
+  font-size: 2.5em;
+  color: #8B4513;
+  text-align: left;
+  margin-bottom: 0.25em;
+  line-height: 1.4em;
+}
+
+.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: initial;
+}
+div.item{
+    margin: 5px;
+    float: left;
+    width: 180px;
+    text-align: center;
+
+}
+div.stuff{
+  align-items: center;
+}
