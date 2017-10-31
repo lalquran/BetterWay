@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <html lang="zxx">
+  <script src = "app.js"></script>
     <head>
         <meta charset="utf-8">
         <title>vega - ecommerce</title>
@@ -27,7 +28,7 @@
 				                <div class="panel-heading">
 				                    <div class="panel-title h3 mt-30 mb-30">Sign In
 				                        <div class="pull-right login-context-info">
-				                            
+
 				                            <a href="#" onClick="$('#login').hide(); $('#signup').show()" class="text-muted small">
 				                                Sign Up
 				                            </a>
@@ -46,13 +47,13 @@
 				                                <input type="password" class="form-control" id="password-sign-in" placeholder="Password">
 				                            </div>
 				                        </div>
-				                        
+
 				                        <div class="custom-checkbox custom-checkbox-primary pull-left">
 				                            <input id="custom-checkbox2" class="styled" type="checkbox" checked>
 				                            <label for="custom-checkbox2"> remember me
 				                            </label>
 				                        </div>
-				                        
+
 				                        <div class="form-group">
 				                            <!-- Button -->
 				                            <div class="col-sm-12 login-btn mt-30">
@@ -120,7 +121,7 @@
  	<!-- SEARCH MODAL -->
 	<div class="modal fade" id="searchModal" tabindex="-1" role="dialog" >
 		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="ti-close" aria-hidden="true"></span></button>
-		
+
 	  	<div class="modal-dialog" role="document">
 	    	<div class="modal-content width-100 pull-left pt-60 pb-60 no-background">
 				<div class="modal-body">
@@ -139,15 +140,15 @@
 	<!-- CART MODAL -->
 	<div class="modal fade" id="cartModal" tabindex="-1" role="dialog" >
 		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="ti-close" aria-hidden="true"></span></button>
-		
+
 	  	<div class="modal-dialog" role="document">
 	    	<div class="modal-content width-100 pull-left pt-60 pb-60">
 				<div class="modal-body">
 					<div class="width-100">
 						<ul class="cart-items width-100 pull-left pl-60 pr-30 pb-0 pt-0 container-fluid">
-			                <li class="cart-items-labels visible-lg-block visible-md-block row"> 
+			                <li class="cart-items-labels visible-lg-block visible-md-block row">
 			                    <span class="col-md-6 text-muted small">product</span>
-			                    <span class="col-md-2 text-muted small text-center">quantity</span> 
+			                    <span class="col-md-2 text-muted small text-center">quantity</span>
 			                    <span class="col-md-4 text-muted small text-right">price</span>
 			                </li>
 			                <li class="row">
@@ -158,7 +159,7 @@
 			                    <div class="cart-item-right col-md-10">
 			                    	<div class="row">
 			                            <span class="cart-description col-xs-12 col-md-5">
-			                                <a class="h5" href="#">Product name</a>				   
+			                                <a class="h5" href="#">Product name</a>
 			                                <span class="cart-item-price h5 text-muted">$ 33.00</span>
 			                            </span>
 
@@ -170,7 +171,7 @@
 			                                <span class="cart-price pull-right">$330.00 <a class="cart-remove" href="#">
 			                                <span class="ti-trash icon pull-right mt-5 ml-10"></span>
 			                                </a></span>
-			                               
+
 			                            </span>
 			                        </div>
 			                    </div>
@@ -183,7 +184,7 @@
 			                    <div class="cart-item-right col-md-10">
 			                    	<div class="row">
 			                            <span class="cart-description col-xs-12 col-md-5">
-			                                <a class="h5" href="#">Product name</a>                               
+			                                <a class="h5" href="#">Product name</a>
 			                                <span class="cart-item-price h5 text-muted">$ 33.00</span>
 			                            </span>
 
@@ -195,7 +196,7 @@
 			                                <span class="cart-price pull-right">$330.00 <a class="cart-remove" href="#">
 			                                <span class="ti-trash icon pull-right mt-5 ml-10"></span>
 			                                </a></span>
-			                               
+
 			                            </span>
 			                        </div>
 			                    </div>
@@ -208,7 +209,7 @@
 			                    <div class="cart-item-right col-md-10">
 			                    	<div class="row">
 			                            <span class="cart-description col-xs-12 col-md-5">
-			                                <a class="h5" href="#">Product name</a>                               
+			                                <a class="h5" href="#">Product name</a>
 			                                <span class="cart-item-price h5 text-muted">$ 33.00</span>
 			                            </span>
 
@@ -238,8 +239,8 @@
 	<div class="container-fluid main-wrapper">
 		<div class="row">
 			<div class="col-md-12 mt-30 mb-30 width-100 pull-left width-100">
-				<h3 class="pull-left">category name <span class="text-muted small">showing: 32 products</span>
-				</h3>		
+				<h3 class="pull-left">Fruits And Vegetables <span class="text-muted small">showing: 32 products</span>
+				</h3>
 
 		        <div class="dropdown pull-right mt-15 pr-15 smartphone-inline-fw">
 		            <button aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" id="dropdownMenu1" type="button" class="btn btn-default btn-sm dropdown-toggle">
@@ -256,7 +257,7 @@
 		                <li class="divider" role="separator"></li>
 		                <li><a href="#">show only specials</a></li>
 		            </ul>
-		        </div>	    
+		        </div>
 			</div>
 		</div>
 		<div class="row">
@@ -306,18 +307,27 @@
 								All<span class="ti-close pull-right"></span>
 							</a>
 						</li>
-					
+
 					</ul>
 				</div>
 
 			</div>
 			<div class="clearfix visible-xs visible-sm"></div>
-			<div class="col-md-10">
+			<div class="col-md-10" id="Products">
 				<!-- PRODUCTS ROW -->
-				<div class="container-fluid">
-					<div class="row flex-list">
+				<!--<div class="container-fluid">
+					<div class="row flex-list">-->
+          <script>displayItems("fnv");</script>
+          <!--
+          <div class='container-fluid' id='fnv'>
+          <div class='row flex-list'>
+          false<span class='product-item-thumbnail-label'>new</span><img src='assets/img/products/product-06.jpg' class='img-responsive' alt='product image'><div class='product-item-thumbnail-overlay'><a href='#' class='btn btn-default pulse'><span class='ti-heart mr-0'></span></a><a href='#'' class='btn btn-primary'>add to cart</a></div></div><div class='row'><div class='col-xs-6'><a class='h5' href='#'>Avocado</a></div><div class='col-xs-6 text-right'><del class='h5 text-muted product-item-price-old'>1.99</del><span class='h5 product-item-price'>0.99</span></div></div></div></div>
+
+
+        -->
+
 						<!-- PRODUCT SINGLE -->
-						<div class="col-md-4 col-sm-6">
+					<!--<div class="col-md-4 col-sm-6">
 							<div class="product-item">
 								<div class="product-item-thumbnail text-center mb-15">
 									<a class="product-item-thumbnail-link" href=""></a>
@@ -339,10 +349,10 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 						<!-- / PRODUCT SINGLE-->
 						<!-- PRODUCT SINGLE -->
-						<div class="col-md-4 col-sm-6">
+					<!--	<div class="col-md-4 col-sm-6">
 							<div class="product-item">
 								<div class="product-item-thumbnail text-center mb-15">
 									<a class="product-item-thumbnail-link" href="#"></a>
@@ -363,10 +373,10 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 						<!-- / PRODUCT SINGLE-->
 						<!-- PRODUCT SINGLE -->
-						<div class="col-md-4 col-sm-6">
+						<!--<div class="col-md-4 col-sm-6">
 							<div class="product-item">
 								<div class="product-item-thumbnail text-center mb-15">
 									<a class="product-item-thumbnail-link" href="#"></a>
@@ -388,10 +398,10 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div>-->
 						<!-- / PRODUCT SINGLE-->
 						<!-- PRODUCT SINGLE -->
-						<div class="col-md-4 col-sm-6">
+						<!--<div class="col-md-4 col-sm-6">
 							<div class="product-item">
 								<div class="product-item-thumbnail text-center mb-15">
 									<a class="product-item-thumbnail-link" href="#"></a>
@@ -412,10 +422,10 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div>-->
 						<!-- / PRODUCT SINGLE-->
 						<!-- PRODUCT SINGLE -->
-						<div class="col-md-4 col-sm-6">
+						<!--<div class="col-md-4 col-sm-6">
 							<div class="product-item">
 								<div class="product-item-thumbnail text-center mb-15">
 									<a class="product-item-thumbnail-link" href="#"></a>
@@ -436,10 +446,10 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div>-->
 						<!-- / PRODUCT SINGLE-->
 						<!-- PRODUCT SINGLE -->
-						<div class="col-md-4 col-sm-6">
+						<!--<div class="col-md-4 col-sm-6">
 							<div class="product-item">
 								<div class="product-item-thumbnail text-center mb-15">
 									<a class="product-item-thumbnail-link" href="apple.html"></a>
@@ -460,8 +470,9 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div>-->
 						<!-- / PRODUCT SINGLE-->
+
 					</div>
 				</div>
 				<!-- / PRODUCTS ROW -->
@@ -542,7 +553,7 @@
 			                            <li> <a href="#"> Lorem Ipsum </a> </li>
 			                        </ul>
 			                    </div>
-			     
+
 			                    <div class="col-xs-12 col-sm-6 col-md-3">
 			                        <h6 class="heading mt-0">STAY IN TOUCH</h6>
 
@@ -567,7 +578,7 @@
 			                </div>
 			            </div>
 			        </div>
-			        
+
 			        <div class="footer-bottom">
 			            <div class="container">
 			                <p class="pull-left"> Copyright © VEGA 2017. All right reserved. </p>
