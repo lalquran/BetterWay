@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BetterWay Coupons</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet  type="text/css" href= "coupons.css">
+</head>
+<body>
+	<div class = "container">
+		<div class="jumbotron">
+			<h1><i class="fa fa-hand-peace-o" aria-hidden="true"></i>BetterWay Coupons</h1>
+			<p>Coupons for select items</p>
+		</div>
+
+		<div class = "row">
+			<div class="col-lg-4 col-sm-6">
+				<div class="thumbnail">
+					<img src="banana.jpeg">
+					<h2><b>10% OFF YOUR PURCHASE</b></h2>
+					<h3>Current Price: $7</h3> 
+					<p class="expire">Expires: November 28, 2017</p>
+					<h4>Code:</h4>
+					<form name="bananaform">
+						<input type="button" class="btn btn-secondary" value="Click to Claim Code" onClick="bananaCode();">
+					</form>
+					<h4>New Price With Coupon:</h4>
+					<form name="bananaPriceForm">
+						<input type="button" class="btn btn-secondary" value="Click Here" onClick="bananaCoupon();">&nbsp;
+						<input type="text" name="bananaPrice" value="">
+					</form>
+				</div>
+			</div>
+
+			<div class="col-lg-4 col-sm-6">
+				<div class="thumbnail">
+					<img src="blueberries.jpeg">
+					<h2><b>5% OFF YOUR PURCHASE</b></h2> 
+					<h3>Current Price: $5</h3>
+					<p class="expire">Expires: November 28, 2017</p>
+				    <h4>Code:</h4>
+					<form name="blueberryform">
+						<input type="button" class="btn btn-secondary" value="Click to Claim Code" onClick="blueberryCode();">
+					</form>
+					<h4>New Price With Coupon:</h4>
+					<form name="blueberryPriceForm">
+						<input type="button" class="btn btn-secondary" value="Click Here" onClick="blueberryCoupon();">&nbsp;
+						<input type="text" name="blueberryPrice" value="">
+					</form>
+				</div>
+			</div>
+
+			<div class="col-lg-4 col-sm-6">
+				<div class="thumbnail">
+					<img src="raspberries.jpeg">
+					<h2><b>5% OFF YOUR PURCHASE</b></h2> 
+					<h3>Current Price: $3</h3>
+					<p class="expire">Expires: November 28, 2017</p>
+					<h4>Code:</h4>
+					<form name="raspberryform">
+						<input type="button" class="btn btn-secondary" value="Click to Claim Code" onClick="raspberryCode();">
+					</form>
+					<h4>New Price With Coupon:</h4>
+					<form name="raspberryPriceForm">
+						<input type="button" class="btn btn-secondary" value="Click Here" onClick="raspberryCoupon();">&nbsp;
+						<input type="text" name="raspberryPrice" value="">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="coupons.js"></script>
+	<script
+	src="https://code.jquery.com/jquery-3.2.1.js"
+	integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+	crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+	<script src="bootstrap.min.js"></script> 
+
+</body>
+</html>

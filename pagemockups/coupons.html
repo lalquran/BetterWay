@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src = "app.js"></script>
+
+    <head>
+        <meta charset="utf-8">
+        <title>vega - ecommerce</title>
+        <style>
+        	.myBox {
+        		float:left;
+				border: none;
+				padding: 5px;
+				font: 24px/36px sans-serif;
+				width:  700px;
+				height: 400px;
+				overflow: scroll;
+			}
+			/* Scrollbar styles */
+			::-webkit-scrollbar {
+				width: 12px;
+				height: 12px;
+			}
+			::-webkit-scrollbar-track {
+				border: 1px #6495ED;
+				border-radius: 10px;
+			}
+			::-webkit-scrollbar-thumb {
+				background: #6495ED;  
+				border-radius: 10px;
+			}
+			::-webkit-scrollbar-thumb:hover {
+				background: solid blue;  
+			}
+        </style>
+        <meta name="description" content="">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="assets/theme/css/theme.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet  type="text/css" href= "../Coupon/coupons.css">        
+    </head>
+	<body>
+
+	<header class="navbar navbar-container mb-0" ng-app="">
+		<div ng-include= "'leftmenu.html'"></div>
+	</header>
+
+
+	<div class="container-fluid main-wrapper">
+		<div class="row">
+			<div class="col-md-12 mt-30 mb-30 width-100 pull-left width-100">
+				<h3 class="pull-left">Shop By History <span id="numbItems" class="text-muted small">showing:</span>
+				<script> document.getElementById("numbItems").innerHTML += " " + shopper.history.length
+				</script>
+				<span class="text-muted small"> products </span>
+				</h3>		
+
+		        <div class="dropdown pull-right mt-15 pr-15 smartphone-inline-fw">
+		            <button aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" id="dropdownMenu1" type="button" class="btn btn-default btn-sm dropdown-toggle">
+		            sort by name A-Z
+		            <span class="ti-angle-down"></span>
+		            </button>
+		            <ul aria-labelledby="dropdownMenu1" class="dropdown-menu">
+		                <li><a href="#">name A-Z</a></li>
+		                <li><a href="#">name Z-A</a></li>
+		                <li><a href="#">price <span class="ti-arrow-up"></span></a></li>
+		                <li><a href="#">price <span class="ti-arrow-down"></span></a></li>
+		                <li><a href="#">date <span class="ti-arrow-up"></span></a></li>
+		                <li><a href="#">date <span class="ti-arrow-down"></span></a></li>
+		                <li class="divider" role="separator"></li>
+		                <li><a href="#">show only specials</a></li>
+		            </ul>
+		        </div>	    
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2">
+				<!--
+				<div class="widget widget-category">
+					<h5>Categories</h5>
+					<ul>
+						<li><a href="#">All <span class="widget-category-number">220</span></a></li>
+						<li><a href="#">All <span class="widget-category-number">220</span></a></li>
+						<li><a href="#">All <span class="widget-category-number">220</span></a></li>
+						<li><a href="#">All <span class="widget-category-number">220</span></a></li>
+						<li><a href="#">All <span class="widget-category-number">220</span></a></li>
+						<li><a href="#">All <span class="widget-category-number">220</span></a></li>
+					</ul>
+				</div>
+				-->
+				<div class="widget widget-price">
+					<h5>Price filter</h5>
+					<ul>
+						<li><a href="#" class="widget-active">$0 - $5 <span class="ti-close pull-right"></span></a></li>
+						<li><a href="#">$5 - $10 <span class="ti-close pull-right"></span></a></li>
+						<li><a href="#">$10 - $20 <span class="ti-close pull-right"></span></a></li>
+						<li><a href="#">$20 - $50 <span class="ti-close pull-right"></span></a></li>
+						<li><a href="#">$50 - $100 <span class="ti-close pull-right"></span></a></li>
+					</ul>
+				</div>
+
+				<div class="widget widget-color">
+					<h5>Green Filter</h5>
+					<ul>
+						<li>
+							<a href="#" class="widget-active">
+								<span class="widget-color-dot" style="background-color: #00ff00"></span>
+								Vegetarian<span class="ti-close pull-right"></span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<span class="widget-color-dot" style="background-color: #007f00"></span>
+								Vegan<span class="ti-close pull-right"></span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<span class="widget-color-dot" style="background-color: #000000"></span>
+								All<span class="ti-close pull-right"></span>
+							</a>
+						</li>
+					
+					</ul>
+				</div>
+
+			</div>
+			<div class="clearfix visible-xs visible-sm"></div>
+			<div class="col-md-10">
+				<!-- PRODUCTS ROW -->
+				<div class="container-fluid">
+					<div id = "myBox"></div>
+                        <div class = "container">
+                            <div class="jumbotron">
+                                <h1><i class="fa fa-hand-peace-o" aria-hidden="true"></i>BetterWay Coupons</h1>
+                                <p>Coupons for select items</p>
+                            </div>
+                    
+                            <div class = "row">
+                                <div class="col-lg-4 col-sm-6">
+                                    <div class="thumbnail">
+                                        <img src="../Coupons/banana.jpeg">
+                                        <h2><b>10% OFF YOUR PURCHASE</b></h2>
+                                        <h3>Current Price: $7</h3> 
+                                        <p class="expire">Expires: November 28, 2017</p>
+                                        <h4>Code:</h4>
+                                        <form name="bananaform">
+                                            <input type="button" class="btn btn-secondary" value="Click to Claim Code" onClick="bananaCode();">
+                                        </form>
+                                        <h4>New Price With Coupon:</h4>
+                                        <form name="bananaPriceForm">
+                                            <input type="button" class="btn btn-secondary" value="Click Here" onClick="bananaCoupon();">&nbsp;
+                                            <input type="text" name="bananaPrice" value="">
+                                        </form>
+                                    </div>
+                                </div>
+                    
+                                <div class="col-lg-4 col-sm-6">
+                                    <div class="thumbnail">
+                                        <img src="../Coupons/blueberries.jpeg">
+                                        <h2><b>5% OFF YOUR PURCHASE</b></h2> 
+                                        <h3>Current Price: $5</h3>
+                                        <p class="expire">Expires: November 28, 2017</p>
+                                        <h4>Code:</h4>
+                                        <form name="blueberryform">
+                                            <input type="button" class="btn btn-secondary" value="Click to Claim Code" onClick="blueberryCode();">
+                                        </form>
+                                        <h4>New Price With Coupon:</h4>
+                                        <form name="blueberryPriceForm">
+                                            <input type="button" class="btn btn-secondary" value="Click Here" onClick="blueberryCoupon();">&nbsp;
+                                            <input type="text" name="blueberryPrice" value="">
+                                        </form>
+                                    </div>
+                                </div>
+                    
+                                <div class="col-lg-4 col-sm-6">
+                                    <div class="thumbnail">
+                                        <img src="../Coupons/raspberries.jpeg">
+                                        <h2><b>5% OFF YOUR PURCHASE</b></h2> 
+                                        <h3>Current Price: $3</h3>
+                                        <p class="expire">Expires: November 28, 2017</p>
+                                        <h4>Code:</h4>
+                                        <form name="raspberryform">
+                                            <input type="button" class="btn btn-secondary" value="Click to Claim Code" onClick="raspberryCode();">
+                                        </form>
+                                        <h4>New Price With Coupon:</h4>
+                                        <form name="raspberryPriceForm">
+                                            <input type="button" class="btn btn-secondary" value="Click Here" onClick="raspberryCoupon();">&nbsp;
+                                            <input type="text" name="raspberryPrice" value="">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+				</div>
+				<!-- / PRODUCTS ROW -->
+
+				<!-- PAGINATION -->
+               
+				<!-- / PAGINATION -->
+			</div>
+			<div class="col-md-12">
+				<!-- FOOTER -->
+			    <footer class="">
+			        <div class="footer pt-60 pb-60" id="footer">
+			            <div class="container-fluid">
+			                <div class="row">
+					            <!-- HORIZONTAL SEPARATE -->
+								<div class="col-md-12">
+									<div class="separate mb-60"></div>
+								</div>
+								<!-- / HORIZONTAL SEPARATE -->
+
+			                     <div class="smartphone-fw col-sm-3 mb-30">
+			                     <h6 class="heading mt-0">CONTACT DATA</h6>
+			                            <address class="small">
+			                                <strong>Vega store</strong><br>
+			                                1355 Market Street, Suite 900<br>
+			                                San Francisco, CA 94103<br>
+			                                (123) 456-7890
+			                            </address>
+			                        </div>
+			                    <div class="smartphone-fw col-xs-6 col-sm-4 col-md-2 mb-30">
+			                        <h6 class="heading mt-0">INFORMATION</h6>
+			                        <ul>
+			                            <li> <a href="#"> Lorem Ipsum </a> </li>
+			                            <li> <a href="#"> Lorem Ipsum </a> </li>
+			                            <li> <a href="#"> Lorem Ipsum </a> </li>
+			                            <li> <a href="#"> Lorem Ipsum </a> </li>
+			                        </ul>
+			                    </div>
+
+			                    <div class="smartphone-fw col-xs-6 col-sm-4 col-md-2 mb-30">
+			                        <h6 class="heading mt-0">TOP CATEGORIES</h6>
+			                        <ul>
+			                            <li> <a href="#"> Lorem Ipsum </a> </li>
+			                            <li> <a href="#"> Lorem Ipsum </a> </li>
+			                            <li> <a href="#"> Lorem Ipsum </a> </li>
+			                            <li> <a href="#"> Lorem Ipsum </a> </li>
+			                        </ul>
+			                    </div>
+
+			                    <div class="smartphone-fw col-xs-6 col-sm-4 col-md-2 mb-30">
+			                        <h6 class="heading mt-0">ACCOUNT</h6>
+			                        <ul>
+			                            <li> <a href="#"> Lorem Ipsum </a> </li>
+			                            <li> <a href="#"> Lorem Ipsum </a> </li>
+			                            <li> <a href="#"> Lorem Ipsum </a> </li>
+			                            <li> <a href="#"> Lorem Ipsum </a> </li>
+			                        </ul>
+			                    </div>
+			     
+			                    <div class="col-xs-12 col-sm-6 col-md-3">
+			                        <h6 class="heading mt-0">STAY IN TOUCH</h6>
+
+			                        <form>
+			                            <fieldset>
+											<div class="form-group">
+												<div class="footer-newsletter">
+													<input class="form-control" id="firstName" placeholder="your e-mail" type="text">
+													<button class="btn btn-link" type="button"><span class="ti-plus"></span></button>
+												</div>
+											</div>
+										</fieldset>
+			                        </form>
+
+			                        <ul class="footer-social" data-wow-delay="0.6s">
+			                            <li><a href="#" class="pull-left"><span class="ti-facebook"></span></a></li>
+			                            <li><a href="#" class="pull-left"><span class="ti-twitter"></span></a></li>
+			                            <li><a href="#" class="pull-left"><span class="ti-instagram"></span></a></li>
+			                            <li><a href="#" class="pull-left"><span class="ti-youtube"></span></a></li>
+			                        </ul>
+			                    </div>
+			                </div>
+			            </div>
+			        </div>
+			        
+			        <div class="footer-bottom">
+			            <div class="container">
+			                <p class="pull-left"> Copyright © VEGA 2017. All right reserved. </p>
+			            </div>
+			        </div>
+			    </footer>
+				<!-- / FOOTER -->
+			</div>
+		</div>
+	</div>
+
+
+	<script src="assets/js/wow.js"></script>
+	<script type="text/javascript" src="../Coupons/coupons.js"></script>
+	<script
+	src="https://code.jquery.com/jquery-3.2.1.js"
+	integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+	crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+	<script src="assets/js/swiper.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/jquery.countTo.js"></script>
+	<script src="assets/js/jquery.inview.js"></script>
+	<script src="assets/js/jquery.countdown.js"></script>
+		<script src="assets/js/bootstrap-select.js"></script>
+	<script src="assets/js/main.js"></script>
+	</body>
+</html>
