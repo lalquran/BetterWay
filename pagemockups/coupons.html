@@ -7,8 +7,12 @@
         <meta charset="utf-8">
         <title>vega - ecommerce</title>
         <style>
+        .tabs{
+        	float:left;
+        }
         	.myBox {
-        		float:left;
+        		float: right;
+        		margin-left: 0px;
 				border: none;
 				padding: 5px;
 				font: 24px/36px sans-serif;
@@ -44,41 +48,13 @@
     </head>
 	<body>
 
-	<header class="navbar navbar-container mb-0" ng-app="">
+	<header id = "tabs" class="navbar navbar-container mb-0" ng-app="">
 		<div ng-include= "'leftmenu.html'"></div>
 	</header>
-
-
-	<div class="container-fluid main-wrapper">
-		<div class="row">
-			<div class="col-md-12 mt-30 mb-30 width-100 pull-left width-100">
-				<h3 class="pull-left">Shop By History <span id="numbItems" class="text-muted small">showing:</span>
-				<script> document.getElementById("numbItems").innerHTML += " " + shopper.history.length
-				</script>
-				<span class="text-muted small"> products </span>
-				</h3>		
-
-		        <div class="dropdown pull-right mt-15 pr-15 smartphone-inline-fw">
-		            <button aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" id="dropdownMenu1" type="button" class="btn btn-default btn-sm dropdown-toggle">
-		            sort by name A-Z
-		            <span class="ti-angle-down"></span>
-		            </button>
-		            <ul aria-labelledby="dropdownMenu1" class="dropdown-menu">
-		                <li><a href="#">name A-Z</a></li>
-		                <li><a href="#">name Z-A</a></li>
-		                <li><a href="#">price <span class="ti-arrow-up"></span></a></li>
-		                <li><a href="#">price <span class="ti-arrow-down"></span></a></li>
-		                <li><a href="#">date <span class="ti-arrow-up"></span></a></li>
-		                <li><a href="#">date <span class="ti-arrow-down"></span></a></li>
-		                <li class="divider" role="separator"></li>
-		                <li><a href="#">show only specials</a></li>
-		            </ul>
-		        </div>	    
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-2">
-				<!--
+	<div id = "myBox">
+		
+			<!--<div class="col-md-2">
+				
 				<div class="widget widget-category">
 					<h5>Categories</h5>
 					<ul>
@@ -91,6 +67,7 @@
 					</ul>
 				</div>
 				-->
+				<!--
 				<div class="widget widget-price">
 					<h5>Price filter</h5>
 					<ul>
@@ -126,19 +103,44 @@
 					
 					</ul>
 				</div>
-
-			</div>
+			</div>-->
 			<div class="clearfix visible-xs visible-sm"></div>
-			<div class="col-md-10">
+				<div class="col-md-10">
 				<!-- PRODUCTS ROW -->
-				<div class="container-fluid">
-					<div id = "myBox"></div>
-                        <div class = "container">
-                            <div class="jumbotron">
+					<div class="container-fluid">
+                        <!--<div class = "container">-->
+                        <div class="container-fluid main-wrapper">
+							<div class="row">
+								<div class="col-md-12 mt-30 mb-30 width-100 pull-left width-100">
+									<h3 class="pull-left">Coupons 
+				<!--<span id="numbItems" class="text-muted small">showing:</span>
+				<script> document.getElementById("numbItems").innerHTML += " " + shopper.history.length
+				</script>
+				<span class="text-muted small"> products </span>-->
+									</h3>		
+<!--
+		        <div class="dropdown pull-right mt-15 pr-15 smartphone-inline-fw">
+		            <button aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" id="dropdownMenu1" type="button" class="btn btn-default btn-sm dropdown-toggle">
+		            sort by name A-Z
+		            <span class="ti-angle-down"></span>
+		            </button>
+		            <ul aria-labelledby="dropdownMenu1" class="dropdown-menu">
+		                <li><a href="#">name A-Z</a></li>
+		                <li><a href="#">name Z-A</a></li>
+		                <li><a href="#">price <span class="ti-arrow-up"></span></a></li>
+		                <li><a href="#">price <span class="ti-arrow-down"></span></a></li>
+		                <li><a href="#">date <span class="ti-arrow-up"></span></a></li>
+		                <li><a href="#">date <span class="ti-arrow-down"></span></a></li>
+		                <li class="divider" role="separator"></li>
+		                <li><a href="#">show only specials</a></li>
+		            </ul>
+		        </div>-->	    
+								</div>
+							</div>
+							<div class="jumbotron">
                                 <h1><i class="fa fa-hand-peace-o" aria-hidden="true"></i>BetterWay Coupons</h1>
                                 <p>Coupons for select items</p>
                             </div>
-                    
                             <div class = "row">
                                 <div class="col-lg-4 col-sm-6">
                                     <div class="thumbnail">
@@ -194,7 +196,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                      <!--  </div>-->
 
 				</div>
 				<!-- / PRODUCTS ROW -->
@@ -287,7 +289,7 @@
 			    </footer>
 				<!-- / FOOTER -->
 			</div>
-		</div>
+		
 	</div>
 
 
