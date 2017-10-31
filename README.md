@@ -1,33 +1,21 @@
-<<<<<<< HEAD
-# README
+# Node.js Loginapp
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a user login and registration app using Node.js, Express, Passport and Mongoose. It is part of the YouTube series [here](https://www.youtube.com/watch?v=Z1ktxiqyiLA)
 
-Things you may want to cover:
+### Version
+1.1.0
 
-* Ruby version
+### Usage
 
-* System dependencies
 
-* Configuration
+### Installation
 
-* Database creation
+Loginapp requires [Node.js](https://nodejs.org/) v4+ to run.
 
-* Database initialization
+```sh
+$ npm install
+```
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-=======
-# CMPE133Project
-Namelist:
-Gideon Ubaldo
-Josh Kardos
-Alan Boo
-
->>>>>>> 118d41620863ce8ab94114921a1088c92718ec9a
+```sh
+$ npm start
+```
