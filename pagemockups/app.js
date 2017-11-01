@@ -7,12 +7,12 @@ function GroceryItem(title, url, dollars, oldPrice, isNew){
 }
 
 //Beverages Aisle
-var appleJuice = new GroceryItem("Apple Juice", "assets/img/products/Beverages/product-06.jpg", 4.99, 6.99, new Boolean(true));
-var pepsi = new GroceryItem('Pepsi', 'assets/img/products/Beverages/product-02.jpg', 3.49, 4.99, new Boolean(false));
-var sunkist = new GroceryItem('Sunkist' , 'assets/img/products/Beverages/product-03.jpg', 3.49, 4.99, new Boolean(false));
-var coffee = new GroceryItem('Coffe', 'assets/img/products/Beverages/product-04.jpg',5.99, 7.49, new Boolean(false));
-var tea = new GroceryItem('Tea','assets/img/products/Beverages/product-05.jpg',3.49, 3.99, new Boolean(false));
-var water = new GroceryItem('Water','assets/img/products/Beverages/product-01.jpg',0.99, 1.49, new Boolean(false));
+var appleJuice = new GroceryItem("Apple Juice", "assets/img/products/Beverages/AppleJuice.jpg", 1.99, 2.99, new Boolean(true));
+var pepsi = new GroceryItem('Pepsi', 'assets/img/products/Beverages/Pepsi.jpg', 1.99, 2.49, new Boolean(false));
+var sunkist = new GroceryItem('Sunkist' , 'assets/img/products/Beverages/Sunkist.jpg', 1.99, 1.49, new Boolean(false));
+var coffee = new GroceryItem('Coffee', 'assets/img/products/Beverages/Coffee.jpg', 2.99, 3.49, new Boolean(false));
+var tea = new GroceryItem('Tea','assets/img/products/Beverages/Tea.jpeg',3.49, 2.99, new Boolean(false));
+var water = new GroceryItem('Water','assets/img/products/Beverages/Water2.jpg', 1.49, 1.99, new Boolean(false));
 var bevInventory = [appleJuice, pepsi, sunkist, coffee, tea, water];
 
 //Bread and Bakery Aisle
