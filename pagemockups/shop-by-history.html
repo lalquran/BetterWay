@@ -47,7 +47,9 @@
 
 
 	<div class="container-fluid main-wrapper">
-		<div class="row">
+
+		<!--sorter-->
+		<div id= "sorter" class="row">
 			<div class="col-md-12 mt-30 mb-30 width-100 pull-left width-100">
 				<h3 class="pull-left">Shop By History <span id="numbItems" class="text-muted small">showing:</span>
 				<script> document.getElementById("numbItems").innerHTML += " " + shopper.history.length
@@ -73,8 +75,11 @@
 		        </div>	    
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-md-2">
+		<!--sorter-->
+
+		<!--filters-->
+		<div  class="row">
+			<div id= "filters" class="col-md-2">
 				<!--
 				<div class="widget widget-category">
 					<h5>Categories</h5>
@@ -124,7 +129,8 @@
 					</ul>
 				</div>
 
-			</div>
+		</div>
+		<!--filters-->
 			<div class="clearfix visible-xs visible-sm"></div>
 			<div class="col-md-10">
 				<!-- PRODUCTS ROW -->
@@ -283,7 +289,9 @@
 							</div>
 						</div>-->
 						<!-- / PRODUCT SINGLE-->
-					</div>
+				</div>
+				<div id ="total">
+				</div>
 
 				</div>
 				<!-- / PRODUCTS ROW -->

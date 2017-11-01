@@ -174,8 +174,40 @@ function displayItems(aisle){
 
 }
 
+function openShoppingCart(){
+	var text = "<table style ='margin-top:30px' border='1'>";
+	text += "<tr  > <th style='background-color :#4CAF50'> Item </th> <th style='background-color:#4CAF50'> Price</th> </tr> ";
+	for(var i =0; i < shopper.shoppingCart.length;i++){
+		text += "<tr>";
+		text += "<td width=100 height=100>" 
+				+ shopper.shoppingCart[i].name
+				+"</td>"
+				+"<td width=100 height=100>"
+				+ shopper.shoppingCart[i].price
+				+ "</td>"
+				+"</tr>";
+	}
+	text += "</table";
+
+	
+	document.getElementById("filters").innerHTML = " ";
+	document.getElementById("sorter").innerHTML = " ";
+	document.getElementById("myBox").innerHTML = text;
+	setTotal();
+}
+
+function setTotal(){
+	var newText 	 =	"Total: ";
+	var runningTotal = 	0;
+	for(var i=0;i<shopper.shoppingCart.length;i++){
+		runningTotal += shopper.shoppingCart[i].price;
+	}
+	newText += runningTotal;
+	document.getElementById("filters").innerHTML = newText;
+}
+
 function displayHistory(){
-	var text = "<table>"
+	var text = "<table>";
 	text += "<tr> <th > Item </th> <th>Photo</th> </tr> ";
 	for(var i = 0; i < shopper.history.length; i++){
 		text += "<tr>"
