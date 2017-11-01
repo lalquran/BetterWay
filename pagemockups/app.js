@@ -16,13 +16,13 @@ var water = new GroceryItem('Water','assets/img/products/Beverages/product-01.jp
 var bevInventory = [appleJuice, pepsi, sunkist, coffee, tea, water];
 
 //Bread and Bakery Aisle
-var hotDogBuns = new GroceryItem("Hot Dog Buns", "assets/img/products/BreadAndBakery/product-06.jpg", 2.99, 3.99, new Boolean(false));
-var hamburgerBuns = new GroceryItem('Hamburger Buns', 'assets/img/products/BreadAndBakery/product-02.jpg', 3.49, 4.99, new Boolean(false));
-var cake = new GroceryItem('Cake' , 'assets/img/products/BreadAndBakery/product-03.jpg', 3.49, 4.99, new Boolean(false));
-var applePie = new GroceryItem('Apple Pie', 'assets/img/products/BreadAndBakery/product-04.jpg',5.99, 7.49, new Boolean(false));
-var bagels = new GroceryItem('Bagels','assets/img/products/BreadAndBakery/product-05.jpg',3.49, 3.99, new Boolean(false));
-var sandwichBread = new GroceryItem('Sandwich Bread','assets/img/products/BreadAndBakery/product-01.jpg',0.99, 1.49, new Boolean(false));
-var bnbInventory = [hotDogBuns, hamburgerBuns, cake, applePie, bagels, sandwichBread];
+var baguette = new GroceryItem("Baguette", "assets/img/products/BreadAndBakery/Baguette.jpeg", 2.99, 3.99, new Boolean(false));
+var fococcia = new GroceryItem('Fococcia Bread', 'assets/img/products/BreadAndBakery/fococcia.jpg', 3.49, 4.99, new Boolean(false));
+var cake = new GroceryItem('Cake' , 'assets/img/products/BreadAndBakery/Cake.jpg', 3.49, 4.99, new Boolean(false));
+var applePie = new GroceryItem('Apple Pie', 'assets/img/products/BreadAndBakery/Applepie.jpg',5.99, 7.49, new Boolean(false));
+var bagels = new GroceryItem('Muffins','assets/img/products/BreadAndBakery/Muffins.jpeg',3.49, 3.99, new Boolean(false));
+var muffins = new GroceryItem('Sandwich Bread','assets/img/products/BreadAndBakery/Sandwichbread.jpeg', 2.99, 3.49, new Boolean(false));
+var bnbInventory = [baguette, fococcia, cake, applePie, bagels, muffins];
 
 //Breakfast Cereal Aisle
 var cheerios = new GroceryItem("Cheerios", "assets/img/products/BreadAndBakery/product-06.jpg", 2.99, 3.99, new Boolean(false));
