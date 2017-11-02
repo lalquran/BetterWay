@@ -43,13 +43,13 @@ var appleSauce = new GroceryItem('Apple Sauce','assets/img/products/BreadAndBake
 var cngInventory = [corn, beans, clamChowder, chickenNoodle, pineapples, appleSauce];
 
 //Cookies, Snacks, Candy Aisle
-var cookies = new GroceryItem("Cookies", "assets/img/products/BreadAndBakery/product-06.jpg", 2.99, 3.99, new Boolean(false));
-var doritos = new GroceryItem('Doritos', 'assets/img/products/BreadAndBakery/product-02.jpg', 3.49, 4.99, new Boolean(false));
-var lays = new GroceryItem('Lays' , 'assets/img/products/BreadAndBakery/product-03.jpg', 3.49, 4.99, new Boolean(false));
-var snickers = new GroceryItem('Snickers', 'assets/img/products/BreadAndBakery/product-04.jpg',5.99, 7.49, new Boolean(false));
-var twix = new GroceryItem('Twix','assets/img/products/BreadAndBakery/product-05.jpg',3.49, 3.99, new Boolean(false));
-var reeses = new GroceryItem('Reeses','assets/img/products/BreadAndBakery/product-01.jpg',0.99, 1.49, new Boolean(false));
-var cscInventory = [cookies, doritos, lays, snickers, twix, reeses];
+var cookies = new GroceryItem("Cookies", "assets/img/products/Snacks/cookies.jpeg", 2.49, 3.99, new Boolean(false));
+var doritos = new GroceryItem('Doritos', 'assets/img/products/Snacks/doritos.jpeg', 1.49, 2.99, new Boolean(false));
+var popcorn = new GroceryItem('Popcorn' , 'assets/img/products/Snacks/popcorn.jpeg', 1.29, 2.49, new Boolean(false));
+var pretzel = new GroceryItem('Pretzel', 'assets/img/products/Snacks/pretzel.jpeg',0.99, 1.49, new Boolean(false));
+var yogurt = new GroceryItem('Yogurt','assets/img/products/Snacks/yogurt.jpeg',3.49, 3.99, new Boolean(false));
+var almonds = new GroceryItem('Almonds','assets/img/products/Snacks/almonds.jpeg',2.99, 3.69, new Boolean(false));
+var cscInventory = [cookies, doritos, popcorn, pretzel, yogurt, almonds];
 
 //Dairy and Eggs Aisle
 var milk = new GroceryItem("Milk", "assets/img/products/BreadAndBakery/product-06.jpg", 2.99, 3.99, new Boolean(false));
@@ -82,9 +82,9 @@ var gpsInventory = [jasmineRice, brownRice, spaghetti, lasagna, macaroni, mashed
 var ham = new GroceryItem("Ham", "assets/img/products/MeatAndSeafood/ham.jpeg", 2.99, 3.99, new Boolean(false));
 var bacon = new GroceryItem('Bacon', 'assets/img/products/MeatAndSeafood/bacon.jpeg', 3.49, 4.99, new Boolean(false));
 var wings = new GroceryItem('Chicken Wings' , 'assets/img/products/MeatAndSeafood/chicken-wings.jpeg', 3.49, 4.99, new Boolean(false));
-var groundBeef = new GroceryItem('Ground Beef', 'assets/img/products/MeatAndSeafood/product-04.jpg',5.99, 7.49, new Boolean(false));
-var steak = new GroceryItem('Steak','assets/img/products/MeatAndSeafood/product-05.jpg',3.49, 3.99, new Boolean(false));
-var chickenBreast = new GroceryItem('Chicken Breast','assets/img/products/MeatAndSeafood/product-01.jpg',0.99, 1.49, new Boolean(false));
+var groundBeef = new GroceryItem('Ground Beef', 'assets/img/products/MeatAndSeafood/ground-beef.jpeg',5.99, 7.49, new Boolean(false));
+var steak = new GroceryItem('Steak','assets/img/products/MeatAndSeafood/steak.jpeg',7.99, 9.99, new Boolean(false));
+var chickenBreast = new GroceryItem('Chicken Breast','assets/img/products/MeatAndSeafood/chicken-breast.jpeg',8.99, 10.49, new Boolean(false));
 var mnsInventory = [ham, bacon, wings, groundBeef, steak, chickenBreast];
 
 //Personal Care Aisle
