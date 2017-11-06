@@ -1,0 +1,12 @@
+/* setting image boundaries */
+.card img {
+  height: 250px;
+}
+.card-text{
+  color: #7f7f7f;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 28px;
+}
