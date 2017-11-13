@@ -48,7 +48,14 @@ new Product({
     title:'Trimmers',
     description: 'Trimmers',
     price: 20
-})];
+}),
+new Product({
+    imagePath: "/images/PersonalCare/Lotion.jpeg",
+    title:'Lotion',
+    description: 'Lotion',
+    price: 3
+})
+];
 /*Save method allows user to save a model to the database.
 Mongoose will create a new collection for that model.
 Product model will create products collection
