@@ -3,6 +3,8 @@ var router = express.Router();
 var Product = require('../models/product');
 var BreadAndBakeryProduct = require('../models/breadandbakeryProduct');
 var BeverageProduct = require('../models/beverageProduct');
+var DairyProduct = require('../models/dairyProduct');
+var PersonalCareProduct = require('../models/personalcareProduct');
 var Cart = require('../models/cart');
 var Order = require('../models/order');
 
@@ -100,6 +102,70 @@ router.get('/beverages/add-to-cart/:id', function(req, res, next){
     req.session.cart = cart;
     console.log(req.session.cart);
     res.redirect('/shop/beverages'); 
+  });
+});
+
+// Dairy Page // 
+router.get('/dairy', function(req, res, next) {
+  //if a success message exist, fetch it
+  var successMsg = req.flash('success')[0];
+
+  DairyProduct.find(function(error,docs){
+    var productChunks = [];
+    var chunkSize = 3; 
+    for (var i = 0; i < docs.length; i += chunkSize){
+      productChunks.push(docs.slice(i,i+chunkSize));
+    }
+    res.render('shop/dairy', { title: 'BetterWay', products: productChunks, successMsg: successMsg, noMessages: !successMsg});    
+  });
+});
+
+//route for add-to-cart page
+router.get('/dairy/add-to-cart/:id', function(req, res, next){
+  var productId = req.params.id;
+  //if cart exists, then pass cart, if not then pass empty js object
+  var cart = new Cart(req.session.cart ? req.session.cart : {});
+  
+  DairyProduct.findById(productId, function(err, product){
+    if (err){
+      return res.redirect('/shop/dairy');
+    }
+    cart.add(product, product.id);
+    req.session.cart = cart;
+    console.log(req.session.cart);
+    res.redirect('/shop/dairy'); 
+  });
+});
+
+// Personal Care Page // 
+router.get('/personalcare', function(req, res, next) {
+  //if a success message exist, fetch it
+  var successMsg = req.flash('success')[0];
+
+  PersonalCareProduct.find(function(error,docs){
+    var productChunks = [];
+    var chunkSize = 3; 
+    for (var i = 0; i < docs.length; i += chunkSize){
+      productChunks.push(docs.slice(i,i+chunkSize));
+    }
+    res.render('shop/personalcare', { title: 'BetterWay', products: productChunks, successMsg: successMsg, noMessages: !successMsg});    
+  });
+});
+
+//route for add-to-cart page
+router.get('/personalcare/add-to-cart/:id', function(req, res, next){
+  var productId = req.params.id;
+  //if cart exists, then pass cart, if not then pass empty js object
+  var cart = new Cart(req.session.cart ? req.session.cart : {});
+  
+  PersonalCareProduct.findById(productId, function(err, product){
+    if (err){
+      return res.redirect('/shop/personalcare');
+    }
+    cart.add(product, product.id);
+    req.session.cart = cart;
+    console.log(req.session.cart);
+    res.redirect('/shop/personalcare'); 
   });
 });
 

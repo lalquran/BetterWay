@@ -1,5 +1,5 @@
 //Importing product model
-var Product = require('../models/beverageProduct');
+var Product = require('../models/personalcareProduct');
 
 /*Creating Connection to MongoDB
 Seeder will not be applicable during runtime without a connection  mongoDB.
@@ -20,40 +20,34 @@ var product = new Product({
 
 //Creating an array of products (fruits)
 var products = [new Product({
-    imagePath: "/images/Beverages/AppleJuice.jpg",
-    title:'Apple Juice',
-    description: 'Delicious Applie Juice',
+    imagePath: "/images/PersonalCare/Bodyspray.jpg",
+    title:'Old Spice Body Spray',
+    description: 'Smells Good',
     price: 3
 }),
 new Product({
-    imagePath: "/images/Beverages/Coffee.jpg",
-    title:'Coffee',
-    description: 'That looks good',
+    imagePath: "/images/PersonalCare/Hairbrush.jpg",
+    title:'Hair Brush',
+    description: 'Check out this hair brush.',
+    price: 5
+}),
+new Product({
+    imagePath: "/images/PersonalCare/Toothbrush.jpeg",
+    title:'Toothbrush',
+    description: 'Keep your teeth clean with this toothbrush!',
     price: 2
 }),
 new Product({
-    imagePath: "/images/Beverages/Pepsi.jpg",
-    title:'Pepsi',
-    description: 'Soda',
+    imagePath: "/images/PersonalCare/Toothpaste.jpeg",
+    title:'Toothpaste',
+    description: 'Toothpaste',
     price: 2
 }),
 new Product({
-    imagePath: "/images/Beverages/Sunkist.jpg",
-    title:'Sunkist',
-    description: 'Orange Soda',
-    price: 2
-}),
-new Product({
-    imagePath: "/images/Beverages/Tea.jpeg",
-    title:'Tea',
-    description: 'Delicious Tea',
-    price: 1
-}),
-new Product({
-    imagePath: "/images/Beverages/Water2.jpg",
-    title:'Water',
-    description: 'Water',
-    price: 1
+    imagePath: "/images/PersonalCare/Trimmers.jpeg",
+    title:'Trimmers',
+    description: 'Trimmers',
+    price: 20
 })];
 /*Save method allows user to save a model to the database.
 Mongoose will create a new collection for that model.
