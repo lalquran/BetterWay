@@ -79,11 +79,15 @@ app.use(function(req, res, next){
 //If slash user, then redirect to user routes (pages) ORDER IS IMPORTANT, /user MUST COME BEFORE /
 app.use('/user', userRoutes);
 
-//If just slash, then redirect to homepage
-app.use('/fruits', routes);
+//If slash fruits, then redirect to fruits
+app.use('/shop', routes);
 
 //If slash aisles, redirect to aisles page.
 app.use('/', homePage);
+
+
+
+
 
 
 // catch 404 and forward to error handler

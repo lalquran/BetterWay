@@ -1,10 +1,13 @@
 var express = require('express');
 var router = express.Router();
 var Product = require('../models/product');
+var BreadAndBakeryProduct = require('../models/breadandbakeryProduct');
+var BeverageProduct = require('../models/beverageProduct');
 var Cart = require('../models/cart');
 var Order = require('../models/order');
-/* GET home page. */
-router.get('/', function(req, res, next) {
+
+// FRUIT PAGE //
+router.get('/fruits', function(req, res, next) {
   //if a success message exist, fetch it
   var successMsg = req.flash('success')[0];
 
@@ -18,27 +21,88 @@ router.get('/', function(req, res, next) {
   });
 });
 
-// route for aisles page
-router.get('/aisles', function(req, res, next){
-  res.render('shop/aisles'); 
-});
-
 //route for add-to-cart page
-router.get('/add-to-cart/:id', function(req, res, next){
+router.get('/fruits/add-to-cart/:id', function(req, res, next){
   var productId = req.params.id;
   //if cart exists, then pass cart, if not then pass empty js object
   var cart = new Cart(req.session.cart ? req.session.cart : {});
   
   Product.findById(productId, function(err, product){
     if (err){
-      return res.redirect('/');
+      return res.redirect('/shop/fruits');
     }
     cart.add(product, product.id);
     req.session.cart = cart;
     console.log(req.session.cart);
-    res.redirect('/'); 
+    res.redirect('/shop/fruits'); 
   });
 });
+
+
+// Bread And Bakery Page //
+router.get('/breadandbakery', function(req, res, next) {
+  //if a success message exist, fetch it
+  var successMsg = req.flash('success')[0];
+
+  BreadAndBakeryProduct.find(function(error,docs){
+    var productChunks = [];
+    var chunkSize = 3; 
+    for (var i = 0; i < docs.length; i += chunkSize){
+      productChunks.push(docs.slice(i,i+chunkSize));
+    }
+    res.render('shop/breadandbakery', { title: 'BetterWay', products: productChunks, successMsg: successMsg, noMessages: !successMsg});    
+  });
+});
+
+//route for add-to-cart page
+router.get('/breadandbakery/add-to-cart/:id', function(req, res, next){
+  var productId = req.params.id;
+  //if cart exists, then pass cart, if not then pass empty js object
+  var cart = new Cart(req.session.cart ? req.session.cart : {});
+  
+  BreadAndBakeryProduct.findById(productId, function(err, product){
+    if (err){
+      return res.redirect('/shop/breadandbakery');
+    }
+    cart.add(product, product.id);
+    req.session.cart = cart;
+    console.log(req.session.cart);
+    res.redirect('/shop/breadandbakery'); 
+  });
+});
+
+// Beverage Page // 
+router.get('/beverages', function(req, res, next) {
+  //if a success message exist, fetch it
+  var successMsg = req.flash('success')[0];
+
+  BeverageProduct.find(function(error,docs){
+    var productChunks = [];
+    var chunkSize = 3; 
+    for (var i = 0; i < docs.length; i += chunkSize){
+      productChunks.push(docs.slice(i,i+chunkSize));
+    }
+    res.render('shop/beverages', { title: 'BetterWay', products: productChunks, successMsg: successMsg, noMessages: !successMsg});    
+  });
+});
+
+//route for add-to-cart page
+router.get('/beverages/add-to-cart/:id', function(req, res, next){
+  var productId = req.params.id;
+  //if cart exists, then pass cart, if not then pass empty js object
+  var cart = new Cart(req.session.cart ? req.session.cart : {});
+  
+  BeverageProduct.findById(productId, function(err, product){
+    if (err){
+      return res.redirect('/shop/beverages');
+    }
+    cart.add(product, product.id);
+    req.session.cart = cart;
+    console.log(req.session.cart);
+    res.redirect('/shop/beverages'); 
+  });
+});
+
 //Removing one item in shopping cart
 router.get('/reduce/:id', function(req, res, next){
   var productId = req.params.id;
@@ -47,7 +111,7 @@ router.get('/reduce/:id', function(req, res, next){
 
   cart.reduceByOne(productId);
   req.session.cart = cart;
-  res.redirect('/shopping-cart');
+  res.redirect('/shop/shopping-cart');
 });
 
 //Removing all items in shopping cart
@@ -58,7 +122,7 @@ router.get('/remove/:id', function(req, res, next){
 
   cart.removeItem(productId);
   req.session.cart = cart;
-  res.redirect('/shopping-cart');
+  res.redirect('/shop/shopping-cart');
 });
 
 router.get('/shopping-cart', function(req, res, next){
@@ -72,7 +136,7 @@ router.get('/shopping-cart', function(req, res, next){
 router.get('/checkout', isLoggedIn, function(req, res, next){
       //redirect if no cart
   if (!req.session.cart){
-    return res.redirect('/shopping-cart');
+    return res.redirect('/shop/shopping-cart');
   }
   var cart = new Cart(req.session.cart);
   var errMsg = req.flash('error')[0];
