@@ -9,6 +9,29 @@ var Cart = require('../models/cart');
 var csrfProtection = csrf();
 router.use(csrfProtection);
 
+//look through order get all products and then ad to cart
+//find products, see if they're in database
+
+//route for add-to-cart-from-history page
+router.get('/add-to-cart-from-history/:id', function(req, res, next){
+    
+  var productId = req.params.id;
+  //if cart exists, then pass cart, if not then pass empty js object
+  var cart = new Cart(req.session.cart ? req.session.cart : {});
+  
+  Product.findById(productId, function(err, product){
+    if (err){
+        
+      return res.redirect('user/profile');
+    }
+
+    cart.add(product, product.id);
+    req.session.cart = cart;
+    console.log(req.session.cart);
+    res.redirect('user/profile'); 
+  });
+});
+
 router.get('/profile', isLoggedIn, function(req, res, next){
     Order.find({user: req.user}, function(err, orders){
         if (err) {

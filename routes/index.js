@@ -25,6 +25,7 @@ router.get('/fruits', function(req, res, next) {
 
 //route for add-to-cart page
 router.get('/fruits/add-to-cart/:id', function(req, res, next){
+
   var productId = req.params.id;
   //if cart exists, then pass cart, if not then pass empty js object
   var cart = new Cart(req.session.cart ? req.session.cart : {});
@@ -39,6 +40,28 @@ router.get('/fruits/add-to-cart/:id', function(req, res, next){
     res.redirect('/shop/fruits'); 
   });
 });
+
+
+//route for add-to-cart page
+router.get('/history/add-to-cart/:id', function(req, res, next){
+
+  var productId = req.params.id;
+  //if cart exists, then pass cart, if not then pass empty js object
+  var cart = new Cart(req.session.cart ? req.session.cart : {});
+  
+  Product.findById(productId, function(err, product){
+    if (err){
+      return res.redirect('/user/profile');
+    }
+    cart.add(product, product.id);
+    req.session.cart = cart;
+    console.log(req.session.cart);
+    res.redirect('/user/profile'); 
+  });
+});
+
+
+
 
 
 // Bread And Bakery Page //

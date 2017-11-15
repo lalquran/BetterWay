@@ -10,13 +10,17 @@
                     {{# each this.items }} 
                     <li class="list-group-item">
                         <span class="badge">{{ this.price }}</span>
-                            {{ this.item.title }} | {{ this.qty }} Units
+                            {{ this.item.title }} | {{ this.qty }} Units 
+
+                            <a href="/shop/history/add-to-cart/{{ this.item._id }}" class="btn btn-success pull-right">Add to Cart</a>
                     </li>
                     {{/each}}
+               
                 </ul>
-            </div>
+            </div> 
             <div class="panel-footer">
                 <strong>Total Price: ${{ this.cart.totalPrice }}</strong>
+               
             </div>
         </div>
         {{/each}}
