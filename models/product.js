@@ -4,6 +4,7 @@ var ProductData = mongoose.Schema;
 /*Defining how the data should look like
 Path to image, title, description, price */  
 var schema = new ProductData({
+	_id: {type: Number, required: true},
     imagePath: {type: String, required: true},
     title: {type: String, required: true},
     description: {type: String, required: true},

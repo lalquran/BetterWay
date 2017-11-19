@@ -6,24 +6,23 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-
-      <!-- Dropdown menu for Aisles. -->
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Aisles
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
           <!-- href to specific aisle -->
-          <a class="dropdown-item" href="/shop/beverages">Beverages</a>
-          <a class="dropdown-item" href="/shop/breadandbakery">Bread and Bakery</a>
-          <a class="dropdown-item" href="/shop/dairy">Dairy</a>
-          <a class="dropdown-item" href="/shop/fruits">Fruits</a>
-          <a class="dropdown-item" href="/shop/personalcare">Personal Care</a>
+          <a class="dropdown-item" href="/beverages">Beverages</a>
+          <a class="dropdown-item" href="/breadandbakery">Bread and Bakery</a>
+          <a class="dropdown-item" href="/dairy">Dairy</a>
+          <a class="dropdown-item" href="/fruits">Fruits</a>
+          <a class="dropdown-item" href="/personalcare">Personal Care</a>
 
       </div>
 
       <li class="nav-item">
-        <a class="nav-link" href="/shop/shopping-cart/">
+      <li class="nav-item">
+        <a class="nav-link" href="/shopping-cart/">
           <i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart
           <span class = "badge"> {{session.cart.totalQty}}</span>
         </a>
@@ -32,23 +31,23 @@
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-user" aria-hidden="true"></i>
           User
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
           <!-- Checks to see if the user is signed in, if they are then show
           the profile and logout functionality. If not, then show the sign up
           sign in functionality. -->
           {{# if login }}
-          <a class="dropdown-item" href="/user/profile">Account</a>
-          <a class="dropdown-item" href="/user/logout">Logout</a>
-          {{ else }}
-          <a class="dropdown-item" href="/user/signup">Sign up</a>
-          <a class="dropdown-item" href="/user/signin">Sign in</a>
+            <a class="dropdown-item" href="/user/profile">Account</a>
+            <a class="dropdown-item" href="/user/logout">Logout</a>
+            {{ else }}
+            <a class="dropdown-item" href="/user/signup">Sign up</a>
+            <a class="dropdown-item" href="/user/signin">Sign in</a>
           {{/if}}
           <!-- not sure if needed, can add for more functionality
             basically just an extra navigation device
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
-        -->
+          -->
       </div>
     </li>
     <li class="nav-item">

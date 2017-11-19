@@ -27,9 +27,6 @@ var userRoutes = require('./routes/user');
 //Routing to Homepage
 var routes = require('./routes/index');
 
-// routing to aisles
-var homePage = require('./routes/homepage');
-
 var app = express();
 
 //setting default layout to be layout.hbs
@@ -79,16 +76,14 @@ app.use(function(req, res, next){
 //If slash user, then redirect to user routes (pages) ORDER IS IMPORTANT, /user MUST COME BEFORE /
 app.use('/user', userRoutes);
 
-//If slash fruits, then redirect to fruits
-app.use('/shop', routes);
-
-//If slash aisles, redirect to aisles page.
-app.use('/', homePage);
-
-
-
-
-
+//If just slash, then redirect to homepage
+app.use('/', routes);
+//app.use('/test', routes);
+app.use('/beverages', routes);
+app.use('/breadandbakeryseeder', routes);
+app.use('/dairy', routes);
+app.use('/personalcare', routes);
+app.use('/fruits', routes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
