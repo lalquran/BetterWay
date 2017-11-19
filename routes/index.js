@@ -210,7 +210,7 @@ router.get('/shopping-cart', function(req, res, next){
   res.render('shop/shopping-cart', {products: cart.generateArray(), totalPrice: cart.totalPrice});  
 });
 
-router.get('/checkout', isLoggedIn, function(req, res, next){
+router.get('/checkout', function(req, res, next){
       //redirect if no cart
   if (!req.session.cart){
     return res.redirect('/shopping-cart');
@@ -220,7 +220,7 @@ router.get('/checkout', isLoggedIn, function(req, res, next){
   res.render('shop/checkout', {total: cart.totalPrice, errMsg: errMsg, noError: !errMsg});  
 });
 
-router.post('/checkout', isLoggedIn, function(req, res, next){
+router.post('/checkout', function(req, res, next){
     //redirect if no cart
   if (!req.session.cart){
     return res.redirect('/shopping-cart');
