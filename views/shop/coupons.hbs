@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 50%;
+/*    height: 300px;  Should be removed. Only for demonstration */
+
+}
+
+    body {
+    font-family: Arial;
+}
+
+.coupon {
+    border: 5px dotted #bbb;
+    border-radius: 15px;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.container {
+    padding: 2px 16px;
+    background-color: #f1f1f1;
+}
+
+.promo {
+    background: #ccc;
+    padding: 3px;
+}
+
+.expire {
+    color: red;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div class="row">
+  <div class="column" style="background-color:#FFF;">
+      
+<body>
+<div class="coupon">
+  <div class="container">
+  </div>
+  <img src="/images/Coupons/coupon.png" alt="Avatar" style="width:100%;">
+  <div class="container" style="background-color:white">
+    <h2><b>10% OFF YOUR PURCHASE</b></h2> 
+    <p> 10% OFF for purchasing over $25.</p>
+  </div>
+  <div class="container">
+    <p>Use Promo Code: <span class="promo">BOH232</span></p>
+    <p class="expire">Expires: Dec 30, 2017</p>
+  </div>
+</div>
+
+</body>
+  </div>
+  <div class="column" style="background-color:#FFF;">
+
+<div class="coupon">
+  <div class="container">
+  </div>
+  <img src="/images/Coupons/coupon.png" alt="Avatar" style="width:100%;">
+  <div class="container" style="background-color:white">
+    <h2><b>20% OFF YOUR PURCHASE</b></h2> 
+    <p> 20% OFF for purchasing over $50.</p>
+  </div>
+  <div class="container">
+    <p>Use Promo Code: <span class="promo">AOX200</span></p>
+    <p class="expire">Expires: Dec 30, 2017</p>
+  </div>
+</div>
+
+  </div>
+</div>
+
+</body>
+
+
+</html> 
+
