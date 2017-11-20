@@ -27,6 +27,11 @@ router.get('/fruits', function(req, res, next) {
   });
 });
 
+router.get('/vericoupons', function(req, res, next) {
+  res.redirect('/shopping-cart');
+
+});
+
 
 router.get('/beverages', function(req, res, next) {
 
