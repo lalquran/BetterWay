@@ -92,6 +92,8 @@ app.use('/cannedgoodandsoups',routes);
 app.use('/cereal', routes);
 app.use('/meatandseafood', routes);
 app.use('/greens', routes);
+app.use('/about', routes);
+
 
 
 

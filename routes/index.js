@@ -24,6 +24,15 @@ router.get('/greens', function(req, res, next) {
   res.render('shop/greens', { title: 'BetterWay'});
 });
 
+
+// about page
+router.get('/about', function(req, res, next) {
+  
+  res.render('shop/about', { title: 'BetterWay'});
+});
+
+
+
 router.get('/fruits', function(req, res, next) {
   Product.find(function(error,docs){
     var productChunks = [];
