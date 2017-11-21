@@ -436,7 +436,7 @@ new Product({
     _id: 61,
     imagePath: '/images/greens/freshraw/carrot.jpg',
     title:'carrot',
-    description: 'brocolli for your eyes',
+    description: 'carrot for your eyes',
     price: 1
 }),
 new Product({
