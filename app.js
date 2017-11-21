@@ -84,6 +84,15 @@ app.use('/breadandbakeryseeder', routes);
 app.use('/dairy', routes);
 app.use('/personalcare', routes);
 app.use('/fruits', routes);
+app.use('/grainandpastas', routes);
+app.use('/snacks', routes);
+
+
+app.use('/cannedgoodandsoups',routes);
+app.use('/cereal', routes);
+app.use('/meatandseafood', routes);
+app.use('/greens', routes);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

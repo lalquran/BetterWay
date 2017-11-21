@@ -208,7 +208,223 @@ MongoClient.connect(url, function(err, db) {
         title:'Trimmers',
         description: 'Trimmers',
         price: 20
-    })];
+    }),
+    new Product({
+    imagePath: "/images/PersonalCare/Lotion.jpeg",
+    title:'Lotion',
+    description: 'Lotion',
+    price: 3
+}),
+    new Product({
+     _id: 30,
+    imagePath: "/images/grainandpastas/brownrice.jpg",
+    title:'brownrice',
+    description: 'eat and you shall fill yourself with fiber!!!',
+    price: 10
+}),
+new Product({
+     _id: 31,
+    imagePath: '/images/grainandpastas/noodles.jpg',
+    title:'noodles',
+    description: 'noodles',
+    price: 4
+}),
+new Product({
+     _id: 32,
+    imagePath: '/images/grainandpastas/quinoa.jpg',
+    title:'quinoa',
+    description: 'quinoa',
+    price: 2
+}),
+new Product({
+     _id: 33,
+    imagePath: '/images/grainandpastas/swirlynoodles.jpg',
+    title:'swirlynoodles',
+    description: 'they are quite swirly, so eat this carefully',
+    price: 6
+}),
+new Product({
+     _id: 34,
+    imagePath: '/images/grainandpastas/Tagliatelle.jpg',
+    title:'Tagliatelle',
+    description: 'fancy name',
+    price: 3
+}),
+new Product({
+     _id: 35,
+    imagePath: '/images/grainandpastas/whiterice.jpg',
+    title:'whiterice',
+    description: 'classic whiterice. Good for everything.for real.',
+    price: 4
+}),
+new Product({
+      _id: 36,
+    imagePath: "/images/Snacks/Almonds.jpeg",
+    title:'Almonds',
+    description: 'almonds',
+    price: 4
+}),
+new Product({
+      _id: 37,
+    imagePath: "/images/Snacks/Cookies.jpeg",
+    title:'Cookies',
+    description: 'cookies',
+    price: 3
+}),
+new Product({
+      _id: 38,
+    imagePath: "/images/Snacks/Popcorn.jpeg",
+    title:'Popcorn',
+    description: 'popcorn',
+    price: 6
+}),
+new Product({
+      _id: 39,
+    imagePath: "/images/Snacks/Doughnut.jpeg",
+    title:'Doughnut',
+    description: 'Doughnut',
+    price: 2
+}),
+new Product({
+      _id: 40,
+    imagePath: "/images/Snacks/Sunflowerseeds.jpeg",
+    title:'Sunflowerseeds',
+    description: 'Sunflowerseeds',
+    price: 4
+}),
+new Product({
+      _id: 41,
+    imagePath: "/images/Snacks/Yogurt.jpeg",
+    title:'Yogurt',
+    description: 'Yogurt',
+    price: 2
+}),
+new Product({
+    _id: 42,
+    imagePath: "/images/MeatandSeafood/steak.jpeg",
+    title:'steak',
+    description: 'steak',
+    price: 12
+}),
+new Product({
+    _id: 43,
+    imagePath: "/images/MeatandSeafood/salmon.jpeg",
+    title:'salmon',
+    description: 'salmon',
+    price: 20
+}),
+new Product({
+    _id: 44,
+    imagePath: "/images/MeatandSeafood/chicken.jpeg",
+    title:'chicken',
+    description: 'chicken',
+    price: 8
+}),
+new Product({
+    _id: 45,
+    imagePath: "/images/MeatandSeafood/groundbeef.jpeg",
+    title:'groundeef',
+    description: 'groundeef',
+    price: 14
+}),
+new Product({
+    _id: 46,
+    imagePath: "/images/MeatandSeafood/crab.jpeg",
+    title:'crab',
+    description: 'crab',
+    price: 25
+}),
+new Product({
+    _id: 47,
+    imagePath: "/images/MeatandSeafood/shrimp.jpeg",
+    title:'shrimp',
+    description: 'shrimp',
+    price: 8
+}),
+new Product({
+    _id: 48,
+    imagePath: "/images/cereal/fruitloops.jpg",
+    title:'fruitloops',
+    description: 'fruitloops!',
+    price: 6
+}),
+new Product({
+    _id: 49,
+    imagePath: "/images/cereal/cornflakes.jpg",
+    title:'cornflakes',
+    description: 'cornflakes!',
+    price: 4
+}),
+new Product({
+    _id: 50,
+    imagePath: "/images/cereal/chocolatecereal.jpg",
+    title:'chololatecereal',
+    description: 'chololatecereal!',
+    price: 8
+}),
+new Product({
+    _id: 51,
+    imagePath: "/images/cereal/raisinbran.jpg",
+    title:'raisinbran',
+    description: 'raisin!',
+    price: 6
+}),
+new Product({
+    _id: 52,
+    imagePath: "/images/cereal/granola.jpg",
+    title:'granola',
+    description: 'granola!',
+    price: 8
+}),
+new Product({
+    _id: 53,
+    imagePath: "/images/cereal/life.jpg",
+    title:'life',
+    description: 'life!',
+    price: 10
+}),
+new Product({
+    _id: 54,
+    imagePath: "/images/cannedgoodsandsoup/blackbeans.jpg",
+    title:'blackbeans',
+    description: 'black beans for your soul',
+    price: 1
+}),
+new Product({
+    _id: 55,
+    imagePath: '/images/cannedgoodsandsoup/chickennoodlesoup.jpg',
+    title:'chicken noodle soup',
+    description: 'soup for your wings',
+    price: 2
+}),
+new Product({
+    _id: 56,
+    imagePath: '/images/cannedgoodsandsoup/spaghettiandmeatballs.png',
+    title:'spaghetti and meatballs',
+    description: 'this one is good. Believe me',
+    price: 4
+}),
+new Product({
+    _id: 57,
+    imagePath: '/images/cannedgoodsandsoup/spam.jpg',
+    title:'spam',
+    description: 'salty yet awesome',
+    price: 2
+}),
+new Product({
+    _id: 58,
+    imagePath: '/images/cannedgoodsandsoup/sweetcorn.jpeg',
+    title:'sweetcorn',
+    description: 'corn that is very sweet',
+    price: 3
+}),
+new Product({
+    _id: 59,
+    imagePath: '/images/cannedgoodsandsoup/veggyandbeef.jpg',
+    title:'veggy and beef soup',
+    description: 'serve it hot and everything is good',
+    price: 2
+})];
 
     db.collection("products").insertMany(products, function(err,res) {
         if (err) throw err;
