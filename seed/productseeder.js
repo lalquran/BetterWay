@@ -424,7 +424,92 @@ new Product({
     title:'veggy and beef soup',
     description: 'serve it hot and everything is good',
     price: 2
-})];
+}),
+new Product({
+    _id: 60,
+    imagePath: '/images/greens/freshraw/brocolli.jpg',
+    title:'brocolli',
+    description: 'brocolli for your brain',
+    price: 2
+}),
+new Product({
+    _id: 61,
+    imagePath: '/images/greens/freshraw/carrot.jpg',
+    title:'carrot',
+    description: 'brocolli for your eyes',
+    price: 1
+}),
+new Product({
+    _id: 62,
+    imagePath: '/images/greens/freshraw/celery.jpg',
+    title:'celery',
+    description: 'celery for your tummy',
+    price: 1
+}),
+new Product({
+    _id: 63,
+    imagePath: '/images/greens/freshcooking/zucchini.jpg',
+    title:'zucchini',
+    description: 'zucchini good for you',
+    price: 2
+}),
+new Product({
+    _id: 64,
+    imagePath: '/images/greens/freshcooking/mushroom.jpg',
+    title:'mushroom',
+    description: 'good for the taste',
+    price: 1
+}),
+new Product({
+    _id: 65,
+    imagePath: '/images/greens/freshcooking/squash.jpg',
+    title:'squash',
+    description: 'good in general',
+    price: 3
+}),
+new Product({
+    _id: 66,
+    imagePath: '/images/greens/freshleafy/spinach.png',
+    title:'spinach',
+    description: 'spinach good for instant muscles',
+    price: 39
+}),
+new Product({
+    _id: 67,
+    imagePath: '/images/greens/freshleafy/butterletuce.png',
+    title:'butterletuce',
+    description: 'more veggy version of rice',
+    price: 4
+}),
+new Product({
+    _id: 68,
+    imagePath: '/images/greens/freshleafy/romaine.jpg',
+    title:'romaine',
+    description: 'veggy version of ramen?',
+    price: 5
+}),
+new Product({
+    _id: 69,
+    imagePath: '/images/greens/special/burger.jpg',
+    title:'Veggy burger',
+    description: 'Don\'t be fooled, but this is as good as the real thing',
+    price: 19
+}),
+new Product({
+    _id: 70,
+    imagePath: '/images/greens/special/pizza.jpg',
+    title:'Veggy pizza',
+    description: 'If you need to share your green life',
+    price: 29
+}),
+new Product({
+    _id: 71,
+    imagePath: '/images/greens/special/vegancookie.jpg',
+    title:'Veggy cookies',
+    description: 'If you need some sweet stuff in your life',
+    price: 4
+})
+];
 
     db.collection("products").insertMany(products, function(err,res) {
         if (err) throw err;

@@ -151,6 +151,65 @@ router.get('/cannedgoodandsoups', function(req, res, next) {
   });
 });
 
+router.get('/freshraw', function(req, res, next) {
+
+  Product.find(function(error,docs){
+    var productChunks = [];
+    var chunkSize = 3; 
+    for (var i = 60; i < 63; i += chunkSize){
+      productChunks.push(docs.slice(i,i+chunkSize));
+    }
+    res.render('shop/freshraw', { title: 'BetterWay', products: productChunks});    
+  });
+});
+
+router.get('/freshcooking', function(req, res, next) {
+
+  Product.find(function(error,docs){
+    var productChunks = [];
+    var chunkSize = 3; 
+    for (var i = 63; i < 66; i += chunkSize){
+      productChunks.push(docs.slice(i,i+chunkSize));
+    }
+    res.render('shop/freshcooking', { title: 'BetterWay', products: productChunks});    
+  });
+});
+
+
+router.get('/freshleafy', function(req, res, next) {
+
+  Product.find(function(error,docs){
+    var productChunks = [];
+    var chunkSize = 3; 
+    for (var i = 66; i < 69; i += chunkSize){
+      productChunks.push(docs.slice(i,i+chunkSize));
+    }
+    res.render('shop/freshleafy', { title: 'BetterWay', products: productChunks});    
+  });
+});
+
+router.get('/greenspecial', function(req, res, next) {
+
+  Product.find(function(error,docs){
+    var productChunks = [];
+    var chunkSize = 3; 
+    for (var i = 69; i < 72; i += chunkSize){
+      productChunks.push(docs.slice(i,i+chunkSize));
+    }
+    res.render('shop/greenspecial', { title: 'BetterWay', products: productChunks});    
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -322,6 +381,89 @@ router.get('/cannedgoodandsoups/add-to-cart/:id', function(req, res, next){
   });
 });
 
+//route for add-to-cart page
+router.get('/freshraw/add-to-cart/:id', function(req, res, next){
+  var productId = req.params.id;
+  //if cart exists, then pass cart, if not then pass empty js object
+  var cart = new Cart(req.session.cart ? req.session.cart : {});
+  Product.findById(productId, function(err, product){
+    if (err){
+      return res.redirect('/freshraw');
+    }
+    cart.add(product, product.id);
+    req.session.cart = cart;
+    console.log(req.session.cart);
+    res.redirect('/freshraw'); 
+  });
+});
+
+//route for add-to-cart page
+router.get('/freshcooking/add-to-cart/:id', function(req, res, next){
+  var productId = req.params.id;
+  //if cart exists, then pass cart, if not then pass empty js object
+  var cart = new Cart(req.session.cart ? req.session.cart : {});
+  Product.findById(productId, function(err, product){
+    if (err){
+      return res.redirect('/freshcooking');
+    }
+    cart.add(product, product.id);
+    req.session.cart = cart;
+    console.log(req.session.cart);
+    res.redirect('/freshcooking'); 
+  });
+});
+
+//route for add-to-cart page
+router.get('/freshleafy/add-to-cart/:id', function(req, res, next){
+  var productId = req.params.id;
+  //if cart exists, then pass cart, if not then pass empty js object
+  var cart = new Cart(req.session.cart ? req.session.cart : {});
+  Product.findById(productId, function(err, product){
+    if (err){
+      return res.redirect('/freshleafy');
+    }
+    cart.add(product, product.id);
+    req.session.cart = cart;
+    console.log(req.session.cart);
+    res.redirect('/freshleafy'); 
+  });
+});
+
+
+//route for add-to-cart page
+router.get('/greenspecial/add-to-cart/:id', function(req, res, next){
+  var productId = req.params.id;
+  //if cart exists, then pass cart, if not then pass empty js object
+  var cart = new Cart(req.session.cart ? req.session.cart : {});
+  Product.findById(productId, function(err, product){
+    if (err){
+      return res.redirect('/greenspecial');
+    }
+    cart.add(product, product.id);
+    req.session.cart = cart;
+    console.log(req.session.cart);
+    res.redirect('/greenspecial'); 
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -343,6 +485,9 @@ router.get('/history/add-to-cart/:id', function(req, res, next){
       res.redirect('/user/profile'); 
     });
   });
+
+
+
 
 
 
