@@ -73,6 +73,8 @@ router.get('/search/:name', function(req, res, next) {
 
 //route for add-to-cart page
 router.get('/search/add-to-cart/:id', function(req, res, next){
+
+  var productChunks   = [];
   var productId = req.params.id;
   //if cart exists, then pass cart, if not then pass empty js object
   var cart = new Cart(req.session.cart ? req.session.cart : {});
@@ -81,6 +83,7 @@ router.get('/search/add-to-cart/:id', function(req, res, next){
       return res.redirect('/search');
     }
     cart.add(product, product.id);
+    productChunks.push(product);
     req.session.cart = cart;
     console.log(req.session.cart);
     res.redirect('/search'); 
@@ -115,6 +118,8 @@ router.get('/fruits', function(req, res, next) {
 });
 
 router.get('/vericoupons', function(req, res, next) {
+  console.log("discount pressed");
+   var codes = ["BOH232", "AOX200"];
   res.redirect('/shopping-cart');
 
 });
