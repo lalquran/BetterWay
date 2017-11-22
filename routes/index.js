@@ -16,6 +16,76 @@ router.get('/coupons', function(req, res, next) {
   res.render('shop/coupons', { title: 'BetterWay'});
 });
 
+
+router.get('/search/:name', function(req, res, next) {
+  var Titles          = ['Banana','Strawberry'
+    ,'Orange'
+    ,'Watermelon'
+    ,'Mango'
+    ,'Apple'
+    ,'Apple Juice'
+    ,'Coffee'
+    ,'Pepsi'
+    ,'Sunkist'
+    ,'Tea'
+    ,'Water'
+    ,'Apple Pie'
+    ,'Baguette'
+    ,'Slice of Cake'
+    ,'Fococcia'
+    ,'Muffins'
+    ,'Sandwich Bread'
+    ,'Brown Eggs'
+    ,'Eggs'
+    ,'Milk'
+    ,'Smoothie'
+    ,'Swiss Cheese'
+    ,'Yogurt'
+    ,'Old Spice Body Spray'
+    ,'Hair Brush'
+    ,'Toothbrush'
+    ,'Toothpaste'
+    ,'Trimmers'
+    ];
+  var allTitles       = [];
+  var productChunks   = [];
+  var j               = -1;
+
+  var x = req.params.name;
+  console.log(x);
+  for(var i = 0; i < 30; i ++){
+    if(Titles[i] == x){
+      j = i;
+    }
+    
+  }
+  Product.find(function(error,docs){
+    if(j != -1){
+      productChunks.push(docs.slice(j,j+1));
+      res.render('shop/search', { title: 'BetterWay', products: productChunks});
+    }
+    else{
+      console.log("Nope");
+      res.render('shop/search', { title: 'BetterWay', products: productChunks});
+    }
+  });
+});
+
+//route for add-to-cart page
+router.get('/search/add-to-cart/:id', function(req, res, next){
+  var productId = req.params.id;
+  //if cart exists, then pass cart, if not then pass empty js object
+  var cart = new Cart(req.session.cart ? req.session.cart : {});
+  Product.findById(productId, function(err, product){
+    if (err){
+      return res.redirect('/search');
+    }
+    cart.add(product, product.id);
+    req.session.cart = cart;
+    console.log(req.session.cart);
+    res.redirect('/search'); 
+  });
+});
 //green page
 
 // Coupons page

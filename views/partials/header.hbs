@@ -71,9 +71,14 @@
       {{/if}}
     </li>
   </ul>
-  <form class="form-inline my-2 my-lg-0">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+  <form action = "javascript:myFunction();" class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" 
+    id="searchText">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  </form>
-</div>
+</form>
 </nav>
+<script>
+  function myFunction(){
+    location.href = "search/"+document.getElementById('searchText').value;
+  }
+</script>
