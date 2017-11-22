@@ -1,0 +1,84 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">BetterWay</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Aisles
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+          <!-- href to specific aisle -->
+          <a class="dropdown-item" href="/beverages">Beverages</a>
+          <a class="dropdown-item" href="/breadandbakery">Bread and Bakery</a>
+          <a class="dropdown-item" href="/dairy">Dairy</a>
+          <a class="dropdown-item" href="/fruits">Fruits</a>
+          <a class="dropdown-item" href="/personalcare">Personal Care</a>
+          <a class="dropdown-item" href="/grainandpastas">Graind and Pastas</a>
+          <a class="dropdown-item" href="/snacks">Snacks</a>
+
+
+          <a class="dropdown-item" href="/cereal">Cereal</a>
+          <a class="dropdown-item" href="/meatandseafood">Meat and Sea food</a>
+          <a class="dropdown-item" href="/cannedgoodandsoups">Canned Goods</a>
+
+
+      </div>
+
+      <li class="nav-item">
+      <li class="nav-item">
+        <a class="nav-link" href="/shopping-cart/">
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart
+          <span class = "badge"> {{session.cart.totalQty}}</span>
+        </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          User
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+
+
+          <!-- Checks to see if the user is signed in, if they are then show
+          the profile and logout functionality. If not, then show the sign up
+          sign in functionality. -->
+          {{# if login }}
+            <a class="dropdown-item" href="/user/profile">Account</a>
+            <a class="dropdown-item" href="/user/logout">Logout</a>
+            {{ else }}
+            <a class="dropdown-item" href="/user/signup">Sign up</a>
+            <a class="dropdown-item" href="/user/signin">Sign in</a>
+          {{/if}}
+          <!-- not sure if needed, can add for more functionality
+            basically just an extra navigation device
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+          -->
+      </div>
+    </li>
+    <a class="nav-link"  id="green" href="/greens">Greens</a>
+    <a class="nav-link"  href="/about">About</a>
+    <li class="nav-item">
+      <!-- Checks to see if the user is signed in, if they are then show that
+      coupons are avalable, if not then don't show the coupons tab. -->
+      {{# if login }}
+      <a class="nav-link" href="/coupons">Coupons!</a>
+      {{ else }}
+      {{/if}}
+    </li>
+  </ul>
+  <form action = "javascript:myFunction();" class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" 
+    id="searchText">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>
+</nav>
+<script>
+  function myFunction(){
+    location.href = "search/"+document.getElementById('searchText').value;
+  }
+</script>
