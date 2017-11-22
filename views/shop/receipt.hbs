@@ -1,0 +1,57 @@
+{{# each products}}
+
+    <div class="heading">
+        <span align="center">
+        <h2>Your Customer Receipt</h2>
+        <h4>Thank you for shopping at Betterway!</h4></span>
+    </div><br><br>
+    {{# each this}}
+
+    <div class="userInfo">
+    Received from: <br>
+    {{this.name}}<br />
+    {{this.address}}
+    </div><br><br>
+    {{/each}}
+{{/each}}
+
+
+    <div class="order">
+        <table style="width:100%" cellpadding="4" cellspacing="4">
+        <tr>
+            <th>Item</th>
+            <th>Aisle</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Discount</th>       
+            <th>Total</th>
+        </tr>
+
+        {{# each items}}
+
+        <tr>
+            <td>{{this.item.title}}</td>
+            <td>Fruits</td>
+            <td>{{this.qty}}</td>
+            <td>{{this.item.price}}</td>
+            <td>0.00</td>
+            <td>{{this.item.price}}</td>       
+        </tr>
+
+        {{/each}}
+
+        <tr>
+        </tr>
+        </table>
+    </div><br><br>
+
+    <div class="subtotal">
+        <table style="width: 30%" align="right">
+        <tr>
+            <th>Total: </th>
+        {{# each this}}
+            <td>{{this.totalPrice}}</td>
+        {{/each}}
+        </tr>
+
+    </div>

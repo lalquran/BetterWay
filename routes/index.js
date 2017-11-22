@@ -104,7 +104,31 @@ router.get('/about', function(req, res, next) {
   res.render('shop/about', { title: 'BetterWay'});
 });
 
+router.get('/receipt', function(req, res, next) {
+  var orderChunks = [];
+  var allItems = [];
+  var ord = [];
+  var totalPrice;
 
+  Order.find(function(error, docs){
+    var length = docs.length;
+
+    console.log(docs.slice(length-1, length));
+    orderChunks.push(docs.slice(length-1,length));
+    var cart;
+    orderChunks[0].forEach(function(order){
+            cart = new Cart(order.cart);
+            allItems = cart.generateArray();
+            totalPrice = cart.totalPrice;
+        });
+
+
+  console.log(allItems);
+     res.render('shop/receipt', { title: 'BetterWay', products: orderChunks, items: allItems, cart: cart, totalPrice: totalPrice});
+
+  });
+
+ });
 
 router.get('/fruits', function(req, res, next) {
   Product.find(function(error,docs){
@@ -685,7 +709,7 @@ router.post('/checkout', function(req, res, next){
     order.save(function(err, result){
       req.flash('success', 'Product successfully purchased!');
       req.session.cart = null;
-      res.redirect('/');
+      res.redirect('/receipt');
     });
   });  
 });
