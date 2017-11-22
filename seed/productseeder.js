@@ -52,7 +52,7 @@ MongoClient.connect(url, function(err, db) {
         _id: 7,
         imagePath: "/images/Beverages/AppleJuice.jpg",
         title:'Apple Juice',
-        description: 'Delicious Applie Juice',
+        description: 'Delicious Apple Juice',
         price: 3
     }),
     new Product({
@@ -509,7 +509,31 @@ new Product({
     title:'Veggy cookies',
     description: 'If you need some sweet stuff in your life',
     price: 4
-})];
+}),
+new Product({
+    _id: 73,
+    imagePath: '/images/greens/frozen/corn.jpeg',
+    title:'Corn',
+    description: 'this one is supper awesome and sweet',
+    price: 4
+}),
+new Product({
+    _id: 74,
+    imagePath: '/images/greens/frozen/peas.jpeg',
+    title:'Peas',
+    description: 'Peas be with you',
+    price: 4
+}),
+new Product({
+    _id: 75,
+    imagePath: '/images/greens/frozen/asparagus.jpeg',
+    title:'Asparagus',
+    description: 'good for your esophagus and overall being',
+    price: 4
+})
+
+
+];
 
     db.collection("products").insertMany(products, function(err,res) {
         if (err) throw err;

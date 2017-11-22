@@ -87,7 +87,6 @@ app.use('/fruits', routes);
 app.use('/grainandpastas', routes);
 app.use('/snacks', routes);
 
-
 app.use('/cannedgoodandsoups',routes);
 app.use('/cereal', routes);
 app.use('/meatandseafood', routes);

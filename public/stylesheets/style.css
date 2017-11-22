@@ -14,3 +14,111 @@
 #green{
   color: #74f442;
 }
+
+#white{
+  color: #ffffff;
+}
+
+
+#aboutimages{
+  height: 250px;
+}
+
+#aboutpromises{
+  font-family: cursive;
+  text-align: left;
+  margin-bottom: 2em;
+}
+
+.subtitlte{
+  margin-left: 2.5em;
+  font-family: cursive;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 20px;
+  margin-bottom: 2em;
+}
+.title{
+    font-family: cursive;
+  font-size: 50px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  line-height: 30px;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.pagedef{
+  margin-top: 8em;
+  line-height: 40px;
+  font-size: 15px;
+}
+.greendef{
+  margin-left: 2em;
+  font-size: 25px;
+  font-weight: bold;
+  font-family: cursive;
+}
+
+.greentext{
+  margin-left: 2em;
+  font-size: 18px;
+  font-weight: normal;
+  font-family: cursive;
+}
+.tag{
+  text-align: center;
+  font-family: cursive;
+  font-size: 25px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 35px;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+h1 {
+  font-family: cursive;
+  font-size: 50px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  line-height: 25px;
+}
+
+h3 {
+  font-family: cursive;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  line-height: 15px;
+}
+p {
+  font-family: cursive;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+blockquote {
+  font-family: cursive;
+  font-size: 21px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 30px;
+}
+pre {
+  font-family: cursive;
+  font-size: 13px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 18px;
+}
