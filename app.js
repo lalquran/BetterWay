@@ -93,7 +93,7 @@ app.use('/meatandseafood', routes);
 app.use('/greens', routes);
 app.use('/about', routes);
 
-
+app.use('/search', routes);
 
 
 // catch 404 and forward to error handler
