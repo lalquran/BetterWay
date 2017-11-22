@@ -10,6 +10,9 @@
   font-weight: bold;
   font-size: 28px;
 }
+#noSearch{
+  max-width: 350px;
+}
 
 #green{
   color: #74f442;
