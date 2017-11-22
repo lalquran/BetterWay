@@ -210,306 +210,306 @@ MongoClient.connect(url, function(err, db) {
         price: 20
     }),
     new Product({
+    _id: 30,    
     imagePath: "/images/PersonalCare/Lotion.jpeg",
     title:'Lotion',
     description: 'Lotion',
     price: 3
 }),
     new Product({
-     _id: 30,
+     _id: 31,
     imagePath: "/images/grainandpastas/brownrice.jpg",
     title:'brownrice',
     description: 'eat and you shall fill yourself with fiber!!!',
     price: 10
 }),
 new Product({
-     _id: 31,
+     _id: 32,
     imagePath: '/images/grainandpastas/noodles.jpg',
     title:'noodles',
     description: 'noodles',
     price: 4
 }),
 new Product({
-     _id: 32,
+     _id: 33,
     imagePath: '/images/grainandpastas/quinoa.jpg',
     title:'quinoa',
     description: 'quinoa',
     price: 2
 }),
 new Product({
-     _id: 33,
+     _id: 34,
     imagePath: '/images/grainandpastas/swirlynoodles.jpg',
     title:'swirlynoodles',
     description: 'they are quite swirly, so eat this carefully',
     price: 6
 }),
 new Product({
-     _id: 34,
+     _id: 35,
     imagePath: '/images/grainandpastas/Tagliatelle.jpg',
     title:'Tagliatelle',
     description: 'fancy name',
     price: 3
 }),
 new Product({
-     _id: 35,
+     _id: 36,
     imagePath: '/images/grainandpastas/whiterice.jpg',
     title:'whiterice',
     description: 'classic whiterice. Good for everything.for real.',
     price: 4
 }),
 new Product({
-      _id: 36,
+      _id: 37,
     imagePath: "/images/Snacks/Almonds.jpeg",
     title:'Almonds',
     description: 'almonds',
     price: 4
 }),
 new Product({
-      _id: 37,
+      _id: 38,
     imagePath: "/images/Snacks/Cookies.jpeg",
     title:'Cookies',
     description: 'cookies',
     price: 3
 }),
 new Product({
-      _id: 38,
+      _id: 39,
     imagePath: "/images/Snacks/Popcorn.jpeg",
     title:'Popcorn',
     description: 'popcorn',
     price: 6
 }),
 new Product({
-      _id: 39,
+      _id: 40,
     imagePath: "/images/Snacks/Doughnut.jpeg",
     title:'Doughnut',
     description: 'Doughnut',
     price: 2
 }),
 new Product({
-      _id: 40,
+      _id: 41,
     imagePath: "/images/Snacks/Sunflowerseeds.jpeg",
     title:'Sunflowerseeds',
     description: 'Sunflowerseeds',
     price: 4
 }),
 new Product({
-      _id: 41,
+      _id: 42,
     imagePath: "/images/Snacks/Yogurt.jpeg",
     title:'Yogurt',
     description: 'Yogurt',
     price: 2
 }),
 new Product({
-    _id: 42,
+    _id: 43,
     imagePath: "/images/MeatandSeafood/steak.jpeg",
     title:'steak',
     description: 'steak',
     price: 12
 }),
 new Product({
-    _id: 43,
+    _id: 44,
     imagePath: "/images/MeatandSeafood/salmon.jpeg",
     title:'salmon',
     description: 'salmon',
     price: 20
 }),
 new Product({
-    _id: 44,
+    _id: 45,
     imagePath: "/images/MeatandSeafood/chicken.jpeg",
     title:'chicken',
     description: 'chicken',
     price: 8
 }),
 new Product({
-    _id: 45,
+    _id: 46,
     imagePath: "/images/MeatandSeafood/groundbeef.jpeg",
     title:'groundeef',
     description: 'groundeef',
     price: 14
 }),
 new Product({
-    _id: 46,
+    _id: 47,
     imagePath: "/images/MeatandSeafood/crab.jpeg",
     title:'crab',
     description: 'crab',
     price: 25
 }),
 new Product({
-    _id: 47,
+    _id: 48,
     imagePath: "/images/MeatandSeafood/shrimp.jpeg",
     title:'shrimp',
     description: 'shrimp',
     price: 8
 }),
 new Product({
-    _id: 48,
+    _id: 49,
     imagePath: "/images/cereal/fruitloops.jpg",
     title:'fruitloops',
     description: 'fruitloops!',
     price: 6
 }),
 new Product({
-    _id: 49,
+    _id: 50,
     imagePath: "/images/cereal/cornflakes.jpg",
     title:'cornflakes',
     description: 'cornflakes!',
     price: 4
 }),
 new Product({
-    _id: 50,
+    _id: 51,
     imagePath: "/images/cereal/chocolatecereal.jpg",
     title:'chololatecereal',
     description: 'chololatecereal!',
     price: 8
 }),
 new Product({
-    _id: 51,
+    _id: 52,
     imagePath: "/images/cereal/raisinbran.jpg",
     title:'raisinbran',
     description: 'raisin!',
     price: 6
 }),
 new Product({
-    _id: 52,
+    _id: 53,
     imagePath: "/images/cereal/granola.jpg",
     title:'granola',
     description: 'granola!',
     price: 8
 }),
 new Product({
-    _id: 53,
+    _id: 54,
     imagePath: "/images/cereal/life.jpg",
     title:'life',
     description: 'life!',
     price: 10
 }),
 new Product({
-    _id: 54,
+    _id: 55,
     imagePath: "/images/cannedgoodsandsoup/blackbeans.jpg",
     title:'blackbeans',
     description: 'black beans for your soul',
     price: 1
 }),
 new Product({
-    _id: 55,
+    _id: 56,
     imagePath: '/images/cannedgoodsandsoup/chickennoodlesoup.jpg',
     title:'chicken noodle soup',
     description: 'soup for your wings',
     price: 2
 }),
 new Product({
-    _id: 56,
+    _id: 57,
     imagePath: '/images/cannedgoodsandsoup/spaghettiandmeatballs.png',
     title:'spaghetti and meatballs',
     description: 'this one is good. Believe me',
     price: 4
 }),
 new Product({
-    _id: 57,
+    _id: 58,
     imagePath: '/images/cannedgoodsandsoup/spam.jpg',
     title:'spam',
     description: 'salty yet awesome',
     price: 2
 }),
 new Product({
-    _id: 58,
+    _id: 59,
     imagePath: '/images/cannedgoodsandsoup/sweetcorn.jpeg',
     title:'sweetcorn',
     description: 'corn that is very sweet',
     price: 3
 }),
 new Product({
-    _id: 59,
+    _id: 60,
     imagePath: '/images/cannedgoodsandsoup/veggyandbeef.jpg',
     title:'veggy and beef soup',
     description: 'serve it hot and everything is good',
     price: 2
 }),
 new Product({
-    _id: 60,
+    _id: 61,
     imagePath: '/images/greens/freshraw/brocolli.jpg',
     title:'brocolli',
     description: 'brocolli for your brain',
     price: 2
 }),
 new Product({
-    _id: 61,
+    _id: 62,
     imagePath: '/images/greens/freshraw/carrot.jpg',
     title:'carrot',
     description: 'carrot for your eyes',
     price: 1
 }),
 new Product({
-    _id: 62,
+    _id: 63,
     imagePath: '/images/greens/freshraw/celery.jpg',
     title:'celery',
     description: 'celery for your tummy',
     price: 1
 }),
 new Product({
-    _id: 63,
+    _id: 64,
     imagePath: '/images/greens/freshcooking/zucchini.jpg',
     title:'zucchini',
     description: 'zucchini good for you',
     price: 2
 }),
 new Product({
-    _id: 64,
+    _id: 65,
     imagePath: '/images/greens/freshcooking/mushroom.jpg',
     title:'mushroom',
     description: 'good for the taste',
     price: 1
 }),
 new Product({
-    _id: 65,
+    _id: 66,
     imagePath: '/images/greens/freshcooking/squash.jpg',
     title:'squash',
     description: 'good in general',
     price: 3
 }),
 new Product({
-    _id: 66,
+    _id: 67,
     imagePath: '/images/greens/freshleafy/spinach.png',
     title:'spinach',
     description: 'spinach good for instant muscles',
     price: 39
 }),
 new Product({
-    _id: 67,
+    _id: 68,
     imagePath: '/images/greens/freshleafy/butterletuce.png',
     title:'butterletuce',
     description: 'more veggy version of rice',
     price: 4
 }),
 new Product({
-    _id: 68,
+    _id: 69,
     imagePath: '/images/greens/freshleafy/romaine.jpg',
     title:'romaine',
     description: 'veggy version of ramen?',
     price: 5
 }),
 new Product({
-    _id: 69,
+    _id: 70,
     imagePath: '/images/greens/special/burger.jpg',
     title:'Veggy burger',
     description: 'Don\'t be fooled, but this is as good as the real thing',
     price: 19
 }),
 new Product({
-    _id: 70,
+    _id: 71,
     imagePath: '/images/greens/special/pizza.jpg',
     title:'Veggy pizza',
     description: 'If you need to share your green life',
     price: 29
 }),
 new Product({
-    _id: 71,
+    _id: 72,
     imagePath: '/images/greens/special/vegancookie.jpg',
     title:'Veggy cookies',
     description: 'If you need some sweet stuff in your life',
     price: 4
-})
-];
+})];
 
     db.collection("products").insertMany(products, function(err,res) {
         if (err) throw err;
