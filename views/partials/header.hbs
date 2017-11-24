@@ -70,9 +70,15 @@
       {{ else }}
       {{/if}}
     </li>
+    <li class = "nav-item">
+      <form class="form-inline my-2 my-lg-0">
+          <input id="fileInput" type="file" style="display:none;" />
+          <input type="button" class="btn btn-outline-success my-2 my-sm-0" value="Shopping List" onclick="document.getElementById('fileInput').click();" />
+    </form>
+    </li>
   </ul>
   <form action = "javascript:myFunction();" class="form-inline my-2 my-lg-0">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" 
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
     id="searchText">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 </form>
@@ -81,4 +87,17 @@
   function myFunction(){
     location.href = "search/"+document.getElementById('searchText').value;
   }
+  document.getElementById("fileInput").addEventListener('change', function(){
+      var fr = new FileReader();
+      var str = ""
+      fr.onload = function(){
+        str = this.result;
+        location.href = "ListSearch/" + str;
+      }
+      fr.readAsText(this.files[0]);
+  });
+  /*document.getElementById("fileInput").addEventListener('change', function(){
+    location.href = "/";
+  });*/
+
 </script>

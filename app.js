@@ -23,7 +23,7 @@ mongoose.connect('localhost:27017/shopping');
 //making sure passport.js runs
 require('./config/passport');
 
-var userRoutes = require('./routes/user'); 
+var userRoutes = require('./routes/user');
 //Routing to Homepage
 var routes = require('./routes/index');
 
@@ -52,11 +52,11 @@ app.use(cookieParser());
 
 //Protection
 app.use(session({
-  secret: 'mysupersecret', 
-  resave: false, 
+  secret: 'mysupersecret',
+  resave: false,
   saveUninitialized: false,
   store: new MongoStore({ mongooseConnection: mongoose.connection}),
-  cookie: { maxAge: 180 * 60 * 1000} 
+  cookie: { maxAge: 180 * 60 * 1000}
 }));
 //Flash message, initialization of passport
 app.use(flash());
@@ -94,6 +94,7 @@ app.use('/greens', routes);
 app.use('/about', routes);
 
 app.use('/search', routes);
+app.use('/ListSearch', routes);
 
 
 // catch 404 and forward to error handler

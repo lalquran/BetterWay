@@ -106,11 +106,81 @@ router.get('/search/:name', function(req, res, next) {
   });
 });
 
+router.get('/ListSearch/:name', function(req, res, next) {
+  var Titles          = ['Banana','Strawberry'
+    ,'Orange'
+    ,'Watermelon'
+    ,'Mango'
+    ,'Apple'
+    ,'Apple Juice'
+    ,'Coffee'
+    ,'Pepsi'
+    ,'Sunkist'
+    ,'Tea'
+    ,'Water'
+    ,'Apple Pie'
+    ,'Baguette'
+    ,'Slice of Cake'
+    ,'Fococcia'
+    ,'Muffins'
+    ,'Sandwich Bread'
+    ,'Brown Eggs'
+    ,'Eggs'
+    ,'Milk'
+    ,'Smoothie'
+    ,'Swiss Cheese'
+    ,'Yogurt'
+    ,'Old Spice Body Spray'
+    ,'Hair Brush'
+    ,'Toothbrush'
+    ,'Toothpaste'
+    ,'Trimmers'
+    ];
+  var allTitles       = [];
+  var productChunks   = [];
+  var j               = -1;
+  var indices         = [];
+
+
+  var x = req.params.name;
+  console.log(x);
+
+  var result = []
+  result = x.split(',');
+  console.log(result);
+
+
+
+  for(var k = 0; k < result.length; k++){
+    for(var i = 0; i < 30; i ++){
+      if(Titles[i] == result[k]){
+        j = i;
+        indices.push(j);
+      }
+
+    }
+  }
+  Product.find(function(error,docs){
+    if(j != -1){
+      for(var m = 0; m < indices.length; m++){
+        var index = indices[m];
+        productChunks.push(docs.slice(index, index + 1));
+      }
+      res.render('shop/ListSearch', { title: 'BetterWay', products: productChunks});
+    }
+    else{
+      console.log("Nope");
+      res.render('shop/ListSearch', { title: 'BetterWay', products: productChunks});
+    }
+  });
+});
+
 //route for add-to-cart page
 router.get('/search/add-to-cart/:id', function(req, res, next){
 
   var productChunks   = [];
   var productId = req.params.id;
+  var previousUrl = req.headers.referer;
   //if cart exists, then pass cart, if not then pass empty js object
   var cart = new Cart(req.session.cart ? req.session.cart : {});
   Product.findById(productId, function(err, product){
@@ -121,7 +191,26 @@ router.get('/search/add-to-cart/:id', function(req, res, next){
     productChunks.push(product);
     req.session.cart = cart;
     console.log(req.session.cart);
-    res.redirect('/search');
+    res.redirect(previousUrl);
+  });
+});
+
+router.get('/ListSearch/add-to-cart/:id', function(req, res, next){
+  var productChunks   = [];
+  var productId = req.params.id;
+  var previousUrl = req.headers.referer;
+
+  //if cart exists, then pass cart, if not then pass empty js object
+  var cart = new Cart(req.session.cart ? req.session.cart : {});
+  Product.findById(productId, function(err, product){
+    if (err){
+      return res.redirect('/ListSearch');
+    }
+    cart.add(product, product.id);
+    productChunks.push(product);
+    req.session.cart = cart;
+    console.log(req.session.cart);
+    res.redirect(previousUrl);
   });
 });
 //green page
