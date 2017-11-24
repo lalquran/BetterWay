@@ -31,14 +31,14 @@ MongoClient.connect(url, function(err, db) {
         _id: 4,
         imagePath: 'http://www.amazingolive.com/uploads/7/2/4/2/72424671/s328690282648775400_p177_i4_w800.jpeg',
         title:'Watermelon',
-        description: 's',
+        description: 'Sweet Watermelon',
         price: 15
     }),
     new Product({
         _id: 5,
         imagePath: 'http://i.ndtvimg.com/i/2017-04/mango_650x400_81493026633.jpg',
         title:'Mango',
-        description: 's',
+        description: 'Delicious Mango',
         price: 11
     }),
     new Product({
@@ -220,42 +220,42 @@ MongoClient.connect(url, function(err, db) {
      _id: 31,
     imagePath: "/images/grainandpastas/brownrice.jpg",
     title:'Brownrice',
-    description: 'eat and you shall fill yourself with fiber!!!',
+    description: 'Eat and you shall fill yourself with fiber!!!',
     price: 10
 }),
 new Product({
      _id: 32,
     imagePath: '/images/grainandpastas/noodles.jpg',
     title:'Noodles',
-    description: 'noodles',
+    description: 'Noodles',
     price: 4
 }),
 new Product({
      _id: 33,
     imagePath: '/images/grainandpastas/quinoa.jpg',
     title:'Quinoa',
-    description: 'quinoa',
+    description: 'Quinoa',
     price: 2
 }),
 new Product({
      _id: 34,
     imagePath: '/images/grainandpastas/swirlynoodles.jpg',
     title:'Swirlynoodles',
-    description: 'they are quite swirly, so eat this carefully',
+    description: 'They are quite swirly, so eat this carefully',
     price: 6
 }),
 new Product({
      _id: 35,
     imagePath: '/images/grainandpastas/Tagliatelle.jpg',
     title:'Tagliatelle',
-    description: 'fancy name',
+    description: 'Fancy name',
     price: 3
 }),
 new Product({
      _id: 36,
     imagePath: '/images/grainandpastas/whiterice.jpg',
     title:'Whiterice',
-    description: 'classic whiterice. Good for everything.for real.',
+    description: 'Classic whiterice. Good for everything.for real.',
     price: 4
 }),
 new Product({
@@ -402,7 +402,7 @@ new Product({
     _id: 57,
     imagePath: '/images/cannedgoodsandsoup/spaghettiandmeatballs.png',
     title:'Spaghetti and Meatballs',
-    description: 'this one is good. Believe me',
+    description: 'This one is good. Believe me',
     price: 4
 }),
 new Product({
@@ -514,7 +514,7 @@ new Product({
     _id: 73,
     imagePath: '/images/greens/frozen/corn.jpeg',
     title:'Corn',
-    description: 'this one is supper awesome and sweet',
+    description: 'This one is supper awesome and sweet',
     price: 4
 }),
 new Product({
@@ -528,7 +528,7 @@ new Product({
     _id: 75,
     imagePath: '/images/greens/frozen/asparagus.jpeg',
     title:'Asparagus',
-    description: 'good for your esophagus and overall being',
+    description: 'Good for your esophagus and overall being',
     price: 4
 })
 
