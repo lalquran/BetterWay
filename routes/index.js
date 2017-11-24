@@ -6,13 +6,13 @@ var Order = require('../models/order');
 
 /* GET home page. */
 router.get('/', function(req, res, next){
-  var successMsg = req.flash('success')[0]; 
-  res.render('shop/aisles', { title: 'BetterWay', successMsg: successMsg, noMessages: !successMsg}); 
+  var successMsg = req.flash('success')[0];
+  res.render('shop/aisles', { title: 'BetterWay', successMsg: successMsg, noMessages: !successMsg});
 });
 
 // Coupons page
 router.get('/coupons', function(req, res, next) {
-  
+
   res.render('shop/coupons', { title: 'BetterWay'});
 });
 
@@ -20,24 +20,34 @@ router.get('/coupons', function(req, res, next) {
 router.get('/applyCoupon', function(req, res, next) {
   var cart = new Cart(req.session.cart ? req.session.cart: {});
   var totalCost = cart.totalPrice;
+  var coupon = cart.couponAvailable;
+  console.log(coupon);
+  if (coupon === 0){
+      if(totalCost >=25 && totalCost < 50)
+      {
+          totalCost = cart.totalPrice *.9;
+          cart.totalPrice = Number(totalCost.toFixed(2));
+          coupon = -1;
+          cart.couponAvailable = coupon;
+          req.session.cart = cart;
 
-  if(totalCost >=25 && totalCost < 50)
-  {  
-      totalCost = cart.totalPrice *.9;
-      cart.totalPrice = totalCost.toFixed(2);
-      req.session.cart = cart;
-    
-  } else if(totalCost >= 50)
-  {
-      totalCost = cart.totalPrice *.8;
-      cart.totalPrice = totalCost.toFixed(2);
-      req.session.cart = cart;
-  } else
-  {
-    cart.totalPrice = cart.totalPrice;
-    req.session.cart = cart;
-  }
+      } else if(totalCost >= 50)
+      {
+          totalCost = cart.totalPrice *.8;
+          cart.totalPrice = Number(totalCost.toFixed(2));
+          coupon = -1;
+          cart.couponAvailable = coupon;
+          req.session.cart = cart;
+      } else
+      {
+        cart.totalPrice = cart.totalPrice;
+        coupon = -1;
+        cart.couponAvailable = coupon;
+        req.session.cart = cart;
+      }
+      console.log(coupon);
 
+}
   res.redirect('/shopping-cart');
 
 });
@@ -82,7 +92,7 @@ router.get('/search/:name', function(req, res, next) {
     if(Titles[i] == x){
       j = i;
     }
-    
+
   }
   Product.find(function(error,docs){
     if(j != -1){
@@ -111,21 +121,21 @@ router.get('/search/add-to-cart/:id', function(req, res, next){
     productChunks.push(product);
     req.session.cart = cart;
     console.log(req.session.cart);
-    res.redirect('/search'); 
+    res.redirect('/search');
   });
 });
 //green page
 
 // Coupons page
 router.get('/greens', function(req, res, next) {
-  
+
   res.render('shop/greens', { title: 'BetterWay'});
 });
 
 
 // about page
 router.get('/about', function(req, res, next) {
-  
+
   res.render('shop/about', { title: 'BetterWay'});
 });
 
@@ -158,11 +168,11 @@ router.get('/receipt', function(req, res, next) {
 router.get('/fruits', function(req, res, next) {
   Product.find(function(error,docs){
     var productChunks = [];
-    var chunkSize = 3; 
+    var chunkSize = 3;
     for (var i = 0; i < 6; i += chunkSize){
       productChunks.push(docs.slice(i,i+chunkSize));
     }
-    res.render('shop/index', { title: 'BetterWay', products: productChunks});    
+    res.render('shop/index', { title: 'BetterWay', products: productChunks});
   });
 });
 
@@ -172,11 +182,11 @@ router.get('/beverages', function(req, res, next) {
 
   Product.find(function(error,docs){
     var productChunks = [];
-    var chunkSize = 3; 
+    var chunkSize = 3;
     for (var i = 6; i < 12; i += chunkSize){
       productChunks.push(docs.slice(i,i+chunkSize));
     }
-    res.render('shop/beverages', { title: 'BetterWay', products: productChunks});    
+    res.render('shop/beverages', { title: 'BetterWay', products: productChunks});
   });
 });
 
@@ -184,11 +194,11 @@ router.get('/breadandbakery', function(req, res, next) {
 
   Product.find(function(error,docs){
     var productChunks = [];
-    var chunkSize = 3; 
+    var chunkSize = 3;
     for (var i = 12; i < 18; i += chunkSize){
       productChunks.push(docs.slice(i,i+chunkSize));
     }
-    res.render('shop/breadandbakery', { title: 'BetterWay', products: productChunks});    
+    res.render('shop/breadandbakery', { title: 'BetterWay', products: productChunks});
   });
 });
 
@@ -196,11 +206,11 @@ router.get('/dairy', function(req, res, next) {
 
   Product.find(function(error,docs){
     var productChunks = [];
-    var chunkSize = 3; 
+    var chunkSize = 3;
     for (var i = 18; i < 24; i += chunkSize){
       productChunks.push(docs.slice(i,i+chunkSize));
     }
-    res.render('shop/dairy', { title: 'BetterWay', products: productChunks});    
+    res.render('shop/dairy', { title: 'BetterWay', products: productChunks});
   });
 });
 
@@ -208,11 +218,11 @@ router.get('/personalcare', function(req, res, next) {
 
   Product.find(function(error,docs){
     var productChunks = [];
-    var chunkSize = 3; 
+    var chunkSize = 3;
     for (var i = 24; i < 30; i += chunkSize){
       productChunks.push(docs.slice(i,i+chunkSize));
     }
-    res.render('shop/personalcare', { title: 'BetterWay', products: productChunks});    
+    res.render('shop/personalcare', { title: 'BetterWay', products: productChunks});
   });
 });
 
@@ -220,11 +230,11 @@ router.get('/grainandpastas', function(req, res, next) {
 
   Product.find(function(error,docs){
     var productChunks = [];
-    var chunkSize = 3; 
+    var chunkSize = 3;
     for (var i = 30; i < 36; i += chunkSize){
       productChunks.push(docs.slice(i,i+chunkSize));
     }
-    res.render('shop/grainandpastas', { title: 'BetterWay', products: productChunks});    
+    res.render('shop/grainandpastas', { title: 'BetterWay', products: productChunks});
   });
 });
 
@@ -232,11 +242,11 @@ router.get('/snacks', function(req, res, next) {
 
   Product.find(function(error,docs){
     var productChunks = [];
-    var chunkSize = 3; 
+    var chunkSize = 3;
     for (var i = 36; i < 42; i += chunkSize){
       productChunks.push(docs.slice(i,i+chunkSize));
     }
-    res.render('shop/snacks', { title: 'BetterWay', products: productChunks});    
+    res.render('shop/snacks', { title: 'BetterWay', products: productChunks});
   });
 });
 
@@ -244,11 +254,11 @@ router.get('/meatandseafood', function(req, res, next) {
 
   Product.find(function(error,docs){
     var productChunks = [];
-    var chunkSize = 3; 
+    var chunkSize = 3;
     for (var i = 42; i < 48; i += chunkSize){
       productChunks.push(docs.slice(i,i+chunkSize));
     }
-    res.render('shop/meatandseafood', { title: 'BetterWay', products: productChunks});    
+    res.render('shop/meatandseafood', { title: 'BetterWay', products: productChunks});
   });
 });
 
@@ -258,11 +268,11 @@ router.get('/cereal', function(req, res, next) {
 
   Product.find(function(error,docs){
     var productChunks = [];
-    var chunkSize = 3; 
+    var chunkSize = 3;
     for (var i = 48; i < 54; i += chunkSize){
       productChunks.push(docs.slice(i,i+chunkSize));
     }
-    res.render('shop/cereal', { title: 'BetterWay', products: productChunks});    
+    res.render('shop/cereal', { title: 'BetterWay', products: productChunks});
   });
 });
 
@@ -270,11 +280,11 @@ router.get('/cannedgoodandsoups', function(req, res, next) {
 
   Product.find(function(error,docs){
     var productChunks = [];
-    var chunkSize = 3; 
+    var chunkSize = 3;
     for (var i = 54; i < 60; i += chunkSize){
       productChunks.push(docs.slice(i,i+chunkSize));
     }
-    res.render('shop/cannedgoodandsoups', { title: 'BetterWay', products: productChunks});    
+    res.render('shop/cannedgoodandsoups', { title: 'BetterWay', products: productChunks});
   });
 });
 
@@ -282,11 +292,11 @@ router.get('/freshraw', function(req, res, next) {
 
   Product.find(function(error,docs){
     var productChunks = [];
-    var chunkSize = 3; 
+    var chunkSize = 3;
     for (var i = 60; i < 63; i += chunkSize){
       productChunks.push(docs.slice(i,i+chunkSize));
     }
-    res.render('shop/freshraw', { title: 'BetterWay', products: productChunks});    
+    res.render('shop/freshraw', { title: 'BetterWay', products: productChunks});
   });
 });
 
@@ -294,11 +304,11 @@ router.get('/freshcooking', function(req, res, next) {
 
   Product.find(function(error,docs){
     var productChunks = [];
-    var chunkSize = 3; 
+    var chunkSize = 3;
     for (var i = 63; i < 66; i += chunkSize){
       productChunks.push(docs.slice(i,i+chunkSize));
     }
-    res.render('shop/freshcooking', { title: 'BetterWay', products: productChunks});    
+    res.render('shop/freshcooking', { title: 'BetterWay', products: productChunks});
   });
 });
 
@@ -307,11 +317,11 @@ router.get('/freshleafy', function(req, res, next) {
 
   Product.find(function(error,docs){
     var productChunks = [];
-    var chunkSize = 3; 
+    var chunkSize = 3;
     for (var i = 66; i < 69; i += chunkSize){
       productChunks.push(docs.slice(i,i+chunkSize));
     }
-    res.render('shop/freshleafy', { title: 'BetterWay', products: productChunks});    
+    res.render('shop/freshleafy', { title: 'BetterWay', products: productChunks});
   });
 });
 
@@ -319,11 +329,11 @@ router.get('/greenspecial', function(req, res, next) {
 
   Product.find(function(error,docs){
     var productChunks = [];
-    var chunkSize = 3; 
+    var chunkSize = 3;
     for (var i = 69; i < 72; i += chunkSize){
       productChunks.push(docs.slice(i,i+chunkSize));
     }
-    res.render('shop/greenspecial', { title: 'BetterWay', products: productChunks});    
+    res.render('shop/greenspecial', { title: 'BetterWay', products: productChunks});
   });
 });
 
@@ -331,11 +341,11 @@ router.get('/frozen', function(req, res, next) {
 
   Product.find(function(error,docs){
     var productChunks = [];
-    var chunkSize = 3; 
+    var chunkSize = 3;
     for (var i = 72; i < 75; i += chunkSize){
       productChunks.push(docs.slice(i,i+chunkSize));
     }
-    res.render('shop/frozen', { title: 'BetterWay', products: productChunks});    
+    res.render('shop/frozen', { title: 'BetterWay', products: productChunks});
   });
 });
 
@@ -354,7 +364,7 @@ router.get('/fruits/add-to-cart/:id', function(req, res, next){
     cart.add(product, product.id);
     req.session.cart = cart;
     console.log(req.session.cart);
-    res.redirect('/fruits'); 
+    res.redirect('/fruits');
   });
 });
 
@@ -362,7 +372,7 @@ router.get('/beverages/add-to-cart/:id', function(req, res, next){
   var productId = req.params.id;
   //if cart exists, then pass cart, if not then pass empty js object
   var cart = new Cart(req.session.cart ? req.session.cart : {});
-  
+
   Product.findById(productId, function(err, product){
     if (err){
       return res.redirect('/beverages');
@@ -370,7 +380,7 @@ router.get('/beverages/add-to-cart/:id', function(req, res, next){
     cart.add(product, product.id);
     req.session.cart = cart;
     console.log(req.session.cart);
-    res.redirect('/beverages'); 
+    res.redirect('/beverages');
   });
 });
 
@@ -380,7 +390,7 @@ router.get('/breadandbakery/add-to-cart/:id', function(req, res, next){
   var productId = req.params.id;
   //if cart exists, then pass cart, if not then pass empty js object
   var cart = new Cart(req.session.cart ? req.session.cart : {});
-  
+
   Product.findById(productId, function(err, product){
     if (err){
       return res.redirect('/breadandbakery');
@@ -388,7 +398,7 @@ router.get('/breadandbakery/add-to-cart/:id', function(req, res, next){
     cart.add(product, product.id);
     req.session.cart = cart;
     console.log(req.session.cart);
-    res.redirect('/breadandbakery'); 
+    res.redirect('/breadandbakery');
   });
 });
 
@@ -398,7 +408,7 @@ router.get('/dairy/add-to-cart/:id', function(req, res, next){
   var productId = req.params.id;
   //if cart exists, then pass cart, if not then pass empty js object
   var cart = new Cart(req.session.cart ? req.session.cart : {});
-  
+
   Product.findById(productId, function(err, product){
     if (err){
       return res.redirect('/dairy');
@@ -406,7 +416,7 @@ router.get('/dairy/add-to-cart/:id', function(req, res, next){
     cart.add(product, product.id);
     req.session.cart = cart;
     console.log(req.session.cart);
-    res.redirect('/dairy'); 
+    res.redirect('/dairy');
   });
 });
 
@@ -415,7 +425,7 @@ router.get('/personalcare/add-to-cart/:id', function(req, res, next){
   var productId = req.params.id;
   //if cart exists, then pass cart, if not then pass empty js object
   var cart = new Cart(req.session.cart ? req.session.cart : {});
-  
+
   Product.findById(productId, function(err, product){
     if (err){
       return res.redirect('/personalcare');
@@ -423,7 +433,7 @@ router.get('/personalcare/add-to-cart/:id', function(req, res, next){
     cart.add(product, product.id);
     req.session.cart = cart;
     console.log(req.session.cart);
-    res.redirect('/personalcare'); 
+    res.redirect('/personalcare');
   });
 });
 
@@ -440,7 +450,7 @@ router.get('/grainandpastas/add-to-cart/:id', function(req, res, next){
     cart.add(product, product.id);
     req.session.cart = cart;
     console.log(req.session.cart);
-    res.redirect('/grainandpastas'); 
+    res.redirect('/grainandpastas');
   });
 });
 
@@ -457,7 +467,7 @@ router.get('/snacks/add-to-cart/:id', function(req, res, next){
     cart.add(product, product.id);
     req.session.cart = cart;
     console.log(req.session.cart);
-    res.redirect('/snacks'); 
+    res.redirect('/snacks');
   });
 });
 
@@ -473,7 +483,7 @@ router.get('/meatandseafood/add-to-cart/:id', function(req, res, next){
     cart.add(product, product.id);
     req.session.cart = cart;
     console.log(req.session.cart);
-    res.redirect('/meatandseafood'); 
+    res.redirect('/meatandseafood');
   });
 });
 
@@ -489,7 +499,7 @@ router.get('/cereal/add-to-cart/:id', function(req, res, next){
     cart.add(product, product.id);
     req.session.cart = cart;
     console.log(req.session.cart);
-    res.redirect('/cereal'); 
+    res.redirect('/cereal');
   });
 });
 
@@ -505,7 +515,7 @@ router.get('/cannedgoodandsoups/add-to-cart/:id', function(req, res, next){
     cart.add(product, product.id);
     req.session.cart = cart;
     console.log(req.session.cart);
-    res.redirect('/cannedgoodandsoups'); 
+    res.redirect('/cannedgoodandsoups');
   });
 });
 
@@ -521,7 +531,7 @@ router.get('/freshraw/add-to-cart/:id', function(req, res, next){
     cart.add(product, product.id);
     req.session.cart = cart;
     console.log(req.session.cart);
-    res.redirect('/freshraw'); 
+    res.redirect('/freshraw');
   });
 });
 
@@ -537,7 +547,7 @@ router.get('/freshcooking/add-to-cart/:id', function(req, res, next){
     cart.add(product, product.id);
     req.session.cart = cart;
     console.log(req.session.cart);
-    res.redirect('/freshcooking'); 
+    res.redirect('/freshcooking');
   });
 });
 
@@ -553,7 +563,7 @@ router.get('/freshleafy/add-to-cart/:id', function(req, res, next){
     cart.add(product, product.id);
     req.session.cart = cart;
     console.log(req.session.cart);
-    res.redirect('/freshleafy'); 
+    res.redirect('/freshleafy');
   });
 });
 
@@ -570,7 +580,7 @@ router.get('/greenspecial/add-to-cart/:id', function(req, res, next){
     cart.add(product, product.id);
     req.session.cart = cart;
     console.log(req.session.cart);
-    res.redirect('/greenspecial'); 
+    res.redirect('/greenspecial');
   });
 });
 
@@ -586,7 +596,7 @@ router.get('/frozen/add-to-cart/:id', function(req, res, next){
     cart.add(product, product.id);
     req.session.cart = cart;
     console.log(req.session.cart);
-    res.redirect('/frozen'); 
+    res.redirect('/frozen');
   });
 });
 
@@ -596,11 +606,11 @@ router.get('/frozen/add-to-cart/:id', function(req, res, next){
 
 //route for add-to-cart page
 router.get('/history/add-to-cart/:id', function(req, res, next){
-  
+
     var productId = req.params.id;
     //if cart exists, then pass cart, if not then pass empty js object
     var cart = new Cart(req.session.cart ? req.session.cart : {});
-    
+
     Product.findById(productId, function(err, product){
       if (err){
         return res.redirect('/user/profile');
@@ -608,7 +618,7 @@ router.get('/history/add-to-cart/:id', function(req, res, next){
       cart.add(product, product.id);
       req.session.cart = cart;
       console.log(req.session.cart);
-      res.redirect('/user/profile'); 
+      res.redirect('/user/profile');
     });
   });
 
@@ -641,7 +651,7 @@ router.get('/shopping-cart', function(req, res, next){
     return res.render('shop/shopping-cart', {products: null});
   }
   var cart = new Cart(req.session.cart);
-  res.render('shop/shopping-cart', {products: cart.generateArray(), totalPrice: cart.totalPrice});  
+  res.render('shop/shopping-cart', {products: cart.generateArray(), totalPrice: cart.totalPrice});
 });
 
 router.get('/checkout', function(req, res, next){
@@ -651,7 +661,7 @@ router.get('/checkout', function(req, res, next){
   }
   var cart = new Cart(req.session.cart);
   var errMsg = req.flash('error')[0];
-  res.render('shop/checkout', {total: cart.totalPrice, errMsg: errMsg, noError: !errMsg});  
+  res.render('shop/checkout', {total: cart.totalPrice, errMsg: errMsg, noError: !errMsg});
 });
 
 router.post('/checkout', function(req, res, next){
@@ -659,12 +669,12 @@ router.post('/checkout', function(req, res, next){
   if (!req.session.cart){
     return res.redirect('/shopping-cart');
   }
-  var cart = new Cart(req.session.cart);  
+  var cart = new Cart(req.session.cart);
   //Code Received from Stripe API (Create a Charge)
   var stripe = require("stripe")(
     "sk_test_IhjdprysPmCubJb9gQY9LrxS"
   );
-  
+
   stripe.charges.create({
     amount: cart.totalPrice * 100,
     currency: "usd",
@@ -689,7 +699,7 @@ router.post('/checkout', function(req, res, next){
       req.session.cart = null;
       res.redirect('/receipt');
     });
-  });  
+  });
 });
 
 module.exports = router;
@@ -701,4 +711,4 @@ function isLoggedIn(req, res, next){
   }
   req.session.oldUrl = req.url;
   res.redirect('/user/signin');
-}  
+}

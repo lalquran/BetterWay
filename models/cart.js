@@ -5,8 +5,9 @@ module.exports = function Cart(oldCart) {
     //If undefined (brand new) cart, then pass default values
     //Empty object + 0s
     this.items = oldCart.items || {};
-    this.totalQty = oldCart.totalQty || 0; 
-    this.totalPrice = oldCart.totalPrice || 0; 
+    this.totalQty = oldCart.totalQty || 0;
+    this.totalPrice = oldCart.totalPrice || 0;
+    this.couponAvailable = oldCart.couponAvailable || 0;  // 0 means coupon is available
 
     //Checks to see if product exists within cart, if yes then we increment quantity
     //If not, then we create a new one and increase quantity
