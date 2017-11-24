@@ -16,6 +16,31 @@ router.get('/coupons', function(req, res, next) {
   res.render('shop/coupons', { title: 'BetterWay'});
 });
 
+//coupon verification and price calculation
+router.get('/applyCoupon', function(req, res, next) {
+  var cart = new Cart(req.session.cart ? req.session.cart: {});
+  var totalCost = cart.totalPrice;
+
+  if(totalCost >=25 && totalCost < 50)
+  {  
+      totalCost = cart.totalPrice *.9;
+      cart.totalPrice = totalCost.toFixed(2);
+      req.session.cart = cart;
+    
+  } else if(totalCost >= 50)
+  {
+      totalCost = cart.totalPrice *.8;
+      cart.totalPrice = totalCost.toFixed(2);
+      req.session.cart = cart;
+  } else
+  {
+    cart.totalPrice = cart.totalPrice;
+    req.session.cart = cart;
+  }
+
+  res.redirect('/shopping-cart');
+
+});
 
 router.get('/search/:name', function(req, res, next) {
   var Titles          = ['Banana','Strawberry'
@@ -141,12 +166,6 @@ router.get('/fruits', function(req, res, next) {
   });
 });
 
-router.get('/vericoupons', function(req, res, next) {
-  console.log("discount pressed");
-   var codes = ["BOH232", "AOX200"];
-  res.redirect('/shopping-cart');
-
-});
 
 
 router.get('/beverages', function(req, res, next) {
@@ -319,20 +338,6 @@ router.get('/frozen', function(req, res, next) {
     res.render('shop/frozen', { title: 'BetterWay', products: productChunks});    
   });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -589,29 +594,6 @@ router.get('/frozen/add-to-cart/:id', function(req, res, next){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //route for add-to-cart page
 router.get('/history/add-to-cart/:id', function(req, res, next){
   
@@ -629,11 +611,6 @@ router.get('/history/add-to-cart/:id', function(req, res, next){
       res.redirect('/user/profile'); 
     });
   });
-
-
-
-
-
 
 
 
@@ -708,6 +685,7 @@ router.post('/checkout', function(req, res, next){
     });
     order.save(function(err, result){
       req.flash('success', 'Product successfully purchased!');
+      cart.totalPrice = cart.totalPrice;
       req.session.cart = null;
       res.redirect('/receipt');
     });

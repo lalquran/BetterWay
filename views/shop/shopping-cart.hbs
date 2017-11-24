@@ -28,9 +28,41 @@
         <!-- Checks to see if the user is signed in, if they are then show that
       coupons are avalable, if not then don't show the coupons tab. -->
       {{# if login }}
-         <form action = "/vericoupons" class="form-inline my-2 my-lg-0">
-        <input id="codeBlock" class="form-control mr-sm-2" placeholder="Coupon Code" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit" onclick="discount()">Enter</button>      
+        <input id="field" class="form-control mr-sm-2" placeholder="Coupon Code" aria-label="Search">
+        <a href="/applyCoupon"><button id="enter" disabled="disabled" class="btn btn-outline-success" type="button" onclick="checkCoupon()" >Enter</button>            
+
+        <script>
+        var price = {{ totalPrice }};
+            var totalCost = parseInt(price);
+
+
+            $("#field").keyup(function(){
+            el = $(this);
+          
+            if(totalCost >=25 && totalCost < 50){
+             
+                if(el.val() === "BOH232")
+                 {
+                 
+                      $('#enter').removeAttr('disabled');
+
+                      
+                 }
+            } else if(totalCost >= 50)
+            {
+                 if(el.val() === "AOX200")
+                 {
+               
+                   $('#enter').removeAttr('disabled');
+                   
+                       
+                 }
+            } 
+           
+            });
+
+
+        </script> 
         {{ else }}
       {{/if}}
         
@@ -52,32 +84,3 @@
 </div>
 {{/if}}
 
-<script>
-/*
-function discount(){
-    console.log("discount pressed");
-    var dummyNumber =0;
-    var total = document.getElementById("totalPrice").innerHTML;
-    var code = document.getElementById("codeBlock").value;
-    var codes = ["BOH232", "AOX200"];
-    for(var i =0; i < codes.length ;i++){
-        if(codes[i] == code){
-            if(i == 0){
-                if(total > 25){
-                    dummyNumber *= total*0.1;
-                    total -= dummyNumber;
-                }
-            }
-            else{
-                if(total > 50){
-                    dummyNumber *= total*0.2;
-                    total -= dummyNumber;
-                }
-
-            }
-        }
-
-    }
-    document.getElementById("totalPrice").innerHTML = total;
-}*/
-</script>
