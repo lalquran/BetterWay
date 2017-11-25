@@ -21,7 +21,13 @@
 #white{
   color: #ffffff;
 }
+#middle{
+  text-align: center;
+}
 
+#space{
+  margin: 5em;
+}
 
 #aboutimages{
   height: 250px;
@@ -57,7 +63,7 @@
   font-style: normal;
   font-variant: normal;
   font-weight: 500;
-  line-height: 30px;
+  line-height: 50px;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
