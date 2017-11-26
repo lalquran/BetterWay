@@ -30,8 +30,8 @@
       coupons are avalable, if not then don't show the coupons tab. -->
       {{# if login }}
         <input id="field" class="form-control mr-sm-2" placeholder="Coupon Code" aria-label="Search">
-        <div href="/applyCoupon" class="enterbutton"><button id="enter" disabled="disabled" class="btn btn-outline-success" type="button" onclick="checkCoupon()" >Enter</button>   
-        </div>         
+        <a href="/applyCoupon" class="enterbutton"><button id="enter" disabled="disabled" class="btn btn-outline-success" type="button" onclick="checkCoupon()" >Enter</button>
+        </a>
 
         <script>
         var price = {{ totalPrice }};
@@ -40,34 +40,34 @@
 
             $("#field").keyup(function(){
             el = $(this);
-          
+
             if(totalCost >=25 && totalCost < 50){
-             
+
                 if(el.val() === "BOH232")
                  {
-                 
+
                       $('#enter').removeAttr('disabled');
 
-                      
+
                  }
             } else if(totalCost >= 50)
             {
                  if(el.val() === "AOX200")
                  {
-               
+
                    $('#enter').removeAttr('disabled');
-                   
-                       
+
+
                  }
-            } 
-           
+            }
+
             });
 
 
-        </script> 
+        </script>
         {{ else }}
       {{/if}}
-        
+
     </form>
 
     </div>
@@ -85,4 +85,3 @@
     </div>
 </div>
 {{/if}}
-
