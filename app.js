@@ -95,6 +95,7 @@ app.use('/about', routes);
 
 app.use('/search', routes);
 app.use('/ListSearch', routes);
+app.use('/shopping-cart', routes);
 
 
 // catch 404 and forward to error handler
