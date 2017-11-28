@@ -23,73 +23,121 @@ router.get('/applyCoupon', function(req, res, next) {
   var coupon = cart.couponAvailable;
   console.log(coupon);
   if (coupon === 0){
-      if(totalCost >=25 && totalCost < 50)
-      {
-          totalCost = cart.totalPrice *.9;
-          cart.totalPrice = Number(totalCost.toFixed(2));
-          coupon = -1;
-          cart.couponAvailable = coupon;
-          req.session.cart = cart;
+    if(totalCost >=25 && totalCost < 50)
+    {
+      totalCost = cart.totalPrice *.9;
+      cart.totalPrice = Number(totalCost.toFixed(2));
+      coupon = -1;
+      cart.couponAvailable = coupon;
+      req.session.cart = cart;
 
-      } else if(totalCost >= 50)
-      {
-          totalCost = cart.totalPrice *.8;
-          cart.totalPrice = Number(totalCost.toFixed(2));
-          coupon = -1;
-          cart.couponAvailable = coupon;
-          req.session.cart = cart;
-      } else
-      {
-        cart.totalPrice = cart.totalPrice;
-        coupon = -1;
-        cart.couponAvailable = coupon;
-        req.session.cart = cart;
-      }
-      console.log(coupon);
+    } else if(totalCost >= 50)
+    {
+      totalCost = cart.totalPrice *.8;
+      cart.totalPrice = Number(totalCost.toFixed(2));
+      coupon = -1;
+      cart.couponAvailable = coupon;
+      req.session.cart = cart;
+    } else
+    {
+      cart.totalPrice = cart.totalPrice;
+      coupon = -1;
+      cart.couponAvailable = coupon;
+      req.session.cart = cart;
+    }
+    console.log(coupon);
 
-}
+  }
   res.redirect('/shopping-cart');
 
 });
 
 router.get('/search/:name', function(req, res, next) {
-  var Titles          = ['Banana','Strawberry'
-    ,'Orange'
-    ,'Watermelon'
-    ,'Mango'
-    ,'Apple'
-    ,'Apple Juice'
-    ,'Coffee'
-    ,'Pepsi'
-    ,'Sunkist'
-    ,'Tea'
-    ,'Water'
-    ,'Apple Pie'
-    ,'Baguette'
-    ,'Slice of Cake'
-    ,'Fococcia'
-    ,'Muffins'
-    ,'Sandwich Bread'
-    ,'Brown Eggs'
-    ,'Eggs'
-    ,'Milk'
-    ,'Smoothie'
-    ,'Swiss Cheese'
-    ,'Yogurt'
-    ,'Old Spice Body Spray'
-    ,'Hair Brush'
-    ,'Toothbrush'
-    ,'Toothpaste'
-    ,'Trimmers'
-    ];
+  var Titles          = 
+  ['banana',
+  'strawberry'
+  ,'orange'
+  ,'watermelon'
+  ,'mango'
+  ,'apple'
+  ,'apple juice'
+  ,'coffee'
+  ,'pepsi'
+  ,'sunkist'
+  ,'tea'
+  ,'water'
+  ,'apple pie'
+  ,'baguette'
+  ,'slice of cake'
+  ,'fococcia'
+  ,'muffins'
+  ,'sandwich bread'
+  ,'brown eggs'
+  ,'eggs'
+  ,'milk'
+  ,'smoothie'
+  ,'swiss cheese'
+  ,'yogurt'
+  ,'old spice body spray'
+  ,'hair brush'
+  ,'toothbrush'
+  ,'toothpaste'
+  ,'trimmers',
+  'lotion',
+  'brownrice',
+  'noodles',
+  'quinoa',
+  'swirlynoodles',
+  'tagliatelle',
+  'white rice',
+  'almonds',
+  'cookies',
+  'popcorn',
+  'doughnut',
+  'sunflowerseeds',
+  'yogurt',
+  'steak',
+  'salmon',
+  'chicken',
+  'ground beef',
+  'crab',
+  'shrimp',
+  'fruitloops',
+  'cornflakes',
+  'chololate cereal',
+  'raisin bran',
+  'granola',
+  'life',
+  'blackbeans',
+  'chicken noodle soup',
+  'spaghetti and meatballs',
+  'spam',
+  'sweetcorn',
+  'veggy and beef soup',
+  'brocolli',
+  'carrot',
+  'celery',
+  'zucchini',
+  'mushroom',
+  'squash',
+  'spinach',
+  'butterletuce',
+  'romaine',
+  'veggy burger',
+  'veggy pizza',
+  'veggy cookies',
+  'corn',
+  'peas',
+  'asparagus',
+  ];
   var allTitles       = [];
   var productChunks   = [];
   var j               = -1;
 
   var x = req.params.name;
   console.log(x);
-  for(var i = 0; i < 30; i ++){
-    if(Titles[i] == x){
+  for(var i = 0; i < Titles.length; i ++){
+    if(Titles[i] == x.toLowerCase()){
       j = i;
     }
 
@@ -108,34 +156,34 @@ router.get('/search/:name', function(req, res, next) {
 
 router.get('/ListSearch/:name', function(req, res, next) {
   var Titles          = ['Banana','Strawberry'
-    ,'Orange'
-    ,'Watermelon'
-    ,'Mango'
-    ,'Apple'
-    ,'Apple Juice'
-    ,'Coffee'
-    ,'Pepsi'
-    ,'Sunkist'
-    ,'Tea'
-    ,'Water'
-    ,'Apple Pie'
-    ,'Baguette'
-    ,'Slice of Cake'
-    ,'Fococcia'
-    ,'Muffins'
-    ,'Sandwich Bread'
-    ,'Brown Eggs'
-    ,'Eggs'
-    ,'Milk'
-    ,'Smoothie'
-    ,'Swiss Cheese'
-    ,'Yogurt'
-    ,'Old Spice Body Spray'
-    ,'Hair Brush'
-    ,'Toothbrush'
-    ,'Toothpaste'
-    ,'Trimmers'
-    ];
+  ,'Orange'
+  ,'Watermelon'
+  ,'Mango'
+  ,'Apple'
+  ,'Apple Juice'
+  ,'Coffee'
+  ,'Pepsi'
+  ,'Sunkist'
+  ,'Tea'
+  ,'Water'
+  ,'Apple Pie'
+  ,'Baguette'
+  ,'Slice of Cake'
+  ,'Fococcia'
+  ,'Muffins'
+  ,'Sandwich Bread'
+  ,'Brown Eggs'
+  ,'Eggs'
+  ,'Milk'
+  ,'Smoothie'
+  ,'Swiss Cheese'
+  ,'Yogurt'
+  ,'Old Spice Body Spray'
+  ,'Hair Brush'
+  ,'Toothbrush'
+  ,'Toothpaste'
+  ,'Trimmers'
+  ];
   var allTitles       = [];
   var productChunks   = [];
   var j               = -1;
@@ -241,18 +289,18 @@ router.get('/receipt', function(req, res, next) {
     orderChunks.push(docs.slice(length-1,length));
     var cart;
     orderChunks[0].forEach(function(order){
-            cart = new Cart(order.cart);
-            allItems = cart.generateArray();
-            totalPrice = cart.totalPrice;
-        });
+      cart = new Cart(order.cart);
+      allItems = cart.generateArray();
+      totalPrice = cart.totalPrice;
+    });
 
 
-  console.log(allItems);
-     res.render('shop/receipt', { title: 'BetterWay', products: orderChunks, items: allItems, cart: cart, totalPrice: totalPrice});
+    console.log(allItems);
+    res.render('shop/receipt', { title: 'BetterWay', products: orderChunks, items: allItems, cart: cart, totalPrice: totalPrice});
 
   });
 
- });
+});
 
 router.get('/fruits', function(req, res, next) {
   Product.find(function(error,docs){
@@ -696,7 +744,7 @@ router.get('/frozen/add-to-cart/:id', function(req, res, next){
 //route for add-to-cart page
 router.get('/history/add-to-cart/:id', function(req, res, next){
 
-    var productId = req.params.id;
+  var productId = req.params.id;
     //if cart exists, then pass cart, if not then pass empty js object
     var cart = new Cart(req.session.cart ? req.session.cart : {});
 
@@ -745,24 +793,24 @@ router.get('/shopping-cart', function(req, res, next){
 
 router.get('/checkout', function(req, res, next){
       //redirect if no cart
-  if (!req.session.cart){
-    return res.redirect('/shopping-cart');
-  }
-  var cart = new Cart(req.session.cart);
-  var errMsg = req.flash('error')[0];
-  res.render('shop/checkout', {total: cart.totalPrice, errMsg: errMsg, noError: !errMsg});
-});
+      if (!req.session.cart){
+        return res.redirect('/shopping-cart');
+      }
+      var cart = new Cart(req.session.cart);
+      var errMsg = req.flash('error')[0];
+      res.render('shop/checkout', {total: cart.totalPrice, errMsg: errMsg, noError: !errMsg});
+    });
 
 router.post('/checkout', function(req, res, next){
     //redirect if no cart
-  if (!req.session.cart){
-    return res.redirect('/shopping-cart');
-  }
-  var cart = new Cart(req.session.cart);
+    if (!req.session.cart){
+      return res.redirect('/shopping-cart');
+    }
+    var cart = new Cart(req.session.cart);
   //Code Received from Stripe API (Create a Charge)
   var stripe = require("stripe")(
     "sk_test_IhjdprysPmCubJb9gQY9LrxS"
-  );
+    );
 
   stripe.charges.create({
     amount: cart.totalPrice * 100,
@@ -796,7 +844,7 @@ module.exports = router;
 function isLoggedIn(req, res, next){
   //Passport
   if (req.isAuthenticated()){
-      return next();
+    return next();
   }
   req.session.oldUrl = req.url;
   res.redirect('/user/signin');
