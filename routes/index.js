@@ -27,9 +27,10 @@ router.get('/applyCoupon', function(req, res, next) {
     if(totalCost >=25 && totalCost < 50)
     {
       totalCost = cart.totalPrice *0.9;
+      totalCost = Number(totalCost.toFixed(2));
       totalDiscount = cart.totalPrice - totalCost;
       totalDiscount = Number(totalDiscount.toFixed(2));
-      cart.totalPrice = Number(totalCost.toFixed(2));
+      cart.totalPrice = totalCost;
       cart.totalDiscount = totalDiscount;
       coupon = -1;
       cart.couponAvailable = coupon;
@@ -41,10 +42,11 @@ router.get('/applyCoupon', function(req, res, next) {
     } else if(totalCost >= 50)
     {
       totalCost = cart.totalPrice *0.75;
+      totalCost = Number(totalCost.toFixed(2));
       totalDiscount = cart.totalPrice - totalCost;
       totalDiscount = Number(totalDiscount.toFixed(2));
-      cart.totalPrice = Number(totalCost.toFixed(2));
-      cart.totalDiscount = Number(totalDiscount);
+      cart.totalPrice = totalCost;
+      cart.totalDiscount = totalDiscount;
       coupon = -1;
       cart.couponAvailable = coupon;
       console.log(cart.totalDiscount);

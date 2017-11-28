@@ -31,7 +31,7 @@
             <td>{{this.item.title}}</td>
             <td>{{this.item.aisle}}</td>
             <td>{{this.qty}}</td>
-            <td>{{this.item.price}}</td>
+            <td>${{this.item.price}}.00</td>
         </tr>
 
         {{/each}}
@@ -42,19 +42,17 @@
     </div><br><br>
 
     <div class="subtotal">
-        <table style="width: 30%" align="right">
+        <table style="width: 48.5%" align="right">
 
         <tr>
-          <th>Discount: </th>
-          {{# each this}}
-          <td>{{this.totalDiscount}}
-          {{/each}}
+          <th>Discount:</th>
+          <td>${{totalDiscount}}</td>
         </tr>
         <tr>
-            <th>Total: </th>
-            {{# each this}}
-            <td>{{this.totalPrice}}</td>
-            {{/each}}
+            <th>Total:</th>
+
+            <td>${{totalPrice}}</td>
+
         </tr>
 
 
