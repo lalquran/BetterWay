@@ -90,7 +90,7 @@
       var str = ""
       fr.onload = function(){
         str = this.result;
-        location.href = "ListSearch/" + str;
+        location.href = "http://localhost:3000/ListSearch/" + str;
       }
       fr.readAsText(this.files[0]);
   });

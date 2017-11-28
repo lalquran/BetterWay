@@ -20,23 +20,34 @@ router.get('/coupons', function(req, res, next) {
 router.get('/applyCoupon', function(req, res, next) {
   var cart = new Cart(req.session.cart ? req.session.cart: {});
   var totalCost = cart.totalPrice;
+  var totalDiscount = 0;
   var coupon = cart.couponAvailable;
   console.log(coupon);
   if (coupon === 0){
     if(totalCost >=25 && totalCost < 50)
     {
-      totalCost = cart.totalPrice *.9;
+      totalCost = cart.totalPrice *0.9;
+      totalDiscount = cart.totalPrice - totalCost;
+      totalDiscount = Number(totalDiscount.toFixed(2));
       cart.totalPrice = Number(totalCost.toFixed(2));
+      cart.totalDiscount = totalDiscount;
       coupon = -1;
       cart.couponAvailable = coupon;
+      console.log(totalCost);
+      console.log(cart.totalDiscount);
+      console.log(cart.totalPrice);
       req.session.cart = cart;
 
     } else if(totalCost >= 50)
     {
-      totalCost = cart.totalPrice *.8;
+      totalCost = cart.totalPrice *0.75;
+      totalDiscount = cart.totalPrice - totalCost;
+      totalDiscount = Number(totalDiscount.toFixed(2));
       cart.totalPrice = Number(totalCost.toFixed(2));
+      cart.totalDiscount = Number(totalDiscount);
       coupon = -1;
       cart.couponAvailable = coupon;
+      console.log(cart.totalDiscount);
       req.session.cart = cart;
     } else
     {
@@ -53,7 +64,7 @@ router.get('/applyCoupon', function(req, res, next) {
 });
 
 router.get('/search/:name', function(req, res, next) {
-  var Titles          = 
+  var Titles          =
   ['banana',
   'strawberry'
   ,'orange'
@@ -155,34 +166,82 @@ router.get('/search/:name', function(req, res, next) {
 });
 
 router.get('/ListSearch/:name', function(req, res, next) {
-  var Titles          = ['Banana','Strawberry'
-  ,'Orange'
-  ,'Watermelon'
-  ,'Mango'
-  ,'Apple'
-  ,'Apple Juice'
-  ,'Coffee'
-  ,'Pepsi'
-  ,'Sunkist'
-  ,'Tea'
-  ,'Water'
-  ,'Apple Pie'
-  ,'Baguette'
-  ,'Slice of Cake'
-  ,'Fococcia'
-  ,'Muffins'
-  ,'Sandwich Bread'
-  ,'Brown Eggs'
-  ,'Eggs'
-  ,'Milk'
-  ,'Smoothie'
-  ,'Swiss Cheese'
-  ,'Yogurt'
-  ,'Old Spice Body Spray'
-  ,'Hair Brush'
-  ,'Toothbrush'
-  ,'Toothpaste'
-  ,'Trimmers'
+  var Titles          =
+  ['banana',
+  'strawberry'
+  ,'orange'
+  ,'watermelon'
+  ,'mango'
+  ,'apple'
+  ,'apple juice'
+  ,'coffee'
+  ,'pepsi'
+  ,'sunkist'
+  ,'tea'
+  ,'water'
+  ,'apple pie'
+  ,'baguette'
+  ,'slice of cake'
+  ,'fococcia'
+  ,'muffins'
+  ,'sandwich bread'
+  ,'brown eggs'
+  ,'eggs'
+  ,'milk'
+  ,'smoothie'
+  ,'swiss cheese'
+  ,'yogurt'
+  ,'old spice body spray'
+  ,'hair brush'
+  ,'toothbrush'
+  ,'toothpaste'
+  ,'trimmers',
+  'lotion',
+  'brownrice',
+  'noodles',
+  'quinoa',
+  'swirlynoodles',
+  'tagliatelle',
+  'white rice',
+  'almonds',
+  'cookies',
+  'popcorn',
+  'doughnut',
+  'sunflowerseeds',
+  'yogurt',
+  'steak',
+  'salmon',
+  'chicken',
+  'ground beef',
+  'crab',
+  'shrimp',
+  'fruitloops',
+  'cornflakes',
+  'chololate cereal',
+  'raisin bran',
+  'granola',
+  'life',
+  'blackbeans',
+  'chicken noodle soup',
+  'spaghetti and meatballs',
+  'spam',
+  'sweetcorn',
+  'veggy and beef soup',
+  'brocolli',
+  'carrot',
+  'celery',
+  'zucchini',
+  'mushroom',
+  'squash',
+  'spinach',
+  'butterletuce',
+  'romaine',
+  'veggy burger',
+  'veggy pizza',
+  'veggy cookies',
+  'corn',
+  'peas',
+  'asparagus',
   ];
   var allTitles       = [];
   var productChunks   = [];
@@ -200,8 +259,8 @@ router.get('/ListSearch/:name', function(req, res, next) {
 
 
   for(var k = 0; k < result.length; k++){
-    for(var i = 0; i < 30; i ++){
-      if(Titles[i] == result[k]){
+    for(var i = 0; i < Titles.length; i ++){
+      if(Titles[i] == result[k].toLowerCase()){
         j = i;
         indices.push(j);
       }
@@ -247,6 +306,7 @@ router.get('/ListSearch/add-to-cart/:id', function(req, res, next){
   var productChunks   = [];
   var productId = req.params.id;
   var previousUrl = req.headers.referer;
+  console.log(previousUrl);
 
   //if cart exists, then pass cart, if not then pass empty js object
   var cart = new Cart(req.session.cart ? req.session.cart : {});
@@ -292,11 +352,12 @@ router.get('/receipt', function(req, res, next) {
       cart = new Cart(order.cart);
       allItems = cart.generateArray();
       totalPrice = cart.totalPrice;
+      totalDiscount = cart.totalDiscount;
     });
 
 
     console.log(allItems);
-    res.render('shop/receipt', { title: 'BetterWay', products: orderChunks, items: allItems, cart: cart, totalPrice: totalPrice});
+    res.render('shop/receipt', { title: 'BetterWay', products: orderChunks, items: allItems, cart: cart, totalPrice: totalPrice, totalDiscount: totalDiscount});
 
   });
 
